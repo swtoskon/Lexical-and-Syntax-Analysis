@@ -1,0 +1,2024 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ico="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#"
+    xmlns="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#"
+  xml:base="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="file:/C:/infoOntology_v1.0.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="MultiResolutionModel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Note: each property has its own comment</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ShapeRepresentationAndDescription"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ShapeGroup">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasRepresentativeShape"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SubGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FileInfo"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="MotionCapture">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="KeyFrame"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Animation frm recorded movements with a mition capture system</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Animation3D"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NonManifoldMesh">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Mesh"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ManifoldVolumeMesh"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ManifoldSurfaceMesh"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ParametricCurve">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ParametricSurface"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ParametricRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ImplicitRepresentation">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDegree"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasImplicitBasis"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasApproximationTolerance"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Mesh"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParametricRepresentation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PointSet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ContourSet"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#PointSet">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfPoints"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Mesh"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfScans"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ImplicitRepresentation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasGeoReference"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParametricRepresentation"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDigitalImages"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ContourSet"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ManifoldSurfaceBRep">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NonManifoldBRep"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ManifoldVolumeBRep"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BRep"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDimension"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StructuralDescriptor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A structural descriptor is a decomposition of a shape into their relevant sub-parts, together with the adjacency realtionships among the parts.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometricalRepresentation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BRep"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Animation3D"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RasterData"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#BRep">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RasterData"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Animation3D"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StructuralDescriptor"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#GeometricalRepresentation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RasterData"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Animation3D"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StructuralDescriptor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ShapeRepresentationAndDescription">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FileInfo"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SubGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeGroup"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasFileInfo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#FileInfo"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasStatus"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ManifoldVolumeBRep">
+    <rdfs:subClassOf rdf:resource="#BRep"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasDimension"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ManifoldSurfaceBRep"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NonManifoldBRep"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="CentreLineGraph">
+    <rdfs:subClassOf rdf:resource="#StructuralDescriptor"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A structural descriptor that can be represented as a graph G = (V, E) where V is the set of nodes of G, and E (subset of VxV, may be empty) is the set of arcs of G. Each node has a specific geometric meaning.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="MultiDimensionalStructuralDescriptor"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ManifoldVolumeMesh">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfEdges"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#NonManifoldMesh"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfFaces"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfVertices"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfCells"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Mesh"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfConnectedComponents"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ManifoldSurfaceMesh">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasGenus"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfIsolatedVertices"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ManifoldVolumeMesh"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasNumberOfFaces"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasNumberOfEdges"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasNumberOfBoundaries"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasNumberOfConnectedComponents"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Mesh"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasNumberOfVertices"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#NonManifoldMesh"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RasterData4D">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RasterData"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RasterData2D"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RasterData3D"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ContourSet">
+    <owl:disjointWith rdf:resource="#ImplicitRepresentation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Mesh"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParametricRepresentation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PointSet"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It includes also higher dimensional level sets.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#GeometricalRepresentation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#KeyFrame">
+    <owl:disjointWith rdf:resource="#MotionCapture"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Animation3D"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasInterpolatorType"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >For animations where important key frmes are defined and the computer calculates whith a kind of interpolatior the frames in between.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Movie">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="MRI"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RasterData3D"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MultiDimensionalStructuralDescriptor">
+    <owl:disjointWith rdf:resource="#CentreLineGraph"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Multidimensional structural descriptor is based on atomic elements whose dimension is higher then one. For example it may include also surfaces, and volumes.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#StructuralDescriptor"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ImplicitSurface">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An implicit surface is defined by a multivariate polynomial in 3 variables.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ImplicitRepresentation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ImplicitCurve"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ImplicitCurve">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An implicit curve is defined as the intersection of two implicit surfaces. In the case where one of the two surfaces is a plane, then the curve is a 2D one.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ImplicitRepresentation"/>
+    <owl:disjointWith rdf:resource="#ImplicitSurface"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RasterData3D">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasMeasureType"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDimensionY"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDimensionX"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RasterData"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#RasterData4D"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RasterData2D"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#FileInfo">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;string, geometry | animation | texture | skinning data>. List of pairs expressing what is in the archive. Each pair represents a file name (&lt;string>) and a file type (geometry | animation | texture | skinning data)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasFileName"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasFileFormat"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#ShapeRepresentationAndDescription"/>
+    <owl:disjointWith rdf:resource="#ShapeGroup"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SubGroup"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="DynamicMRI">
+    <rdfs:subClassOf rdf:resource="#RasterData4D"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NonManifoldBRep">
+    <rdfs:subClassOf rdf:resource="#BRep"/>
+    <owl:disjointWith rdf:resource="#ManifoldSurfaceBRep"/>
+    <owl:disjointWith rdf:resource="#ManifoldVolumeBRep"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ParametricSurface">
+    <owl:disjointWith rdf:resource="#ParametricCurve"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ParametricRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Animation3D">
+    <owl:disjointWith rdf:resource="#BRep"/>
+    <owl:disjointWith rdf:resource="#GeometricalRepresentation"/>
+    <rdfs:subClassOf rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasStructureType"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#StructuralDescriptor"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasAnimationFormat"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RasterData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasGeometryFormat"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDuration"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MPG-4 BAP | MPG-4 FAP | WRL | WRK | TRK | Vertex-based | MAX | MB | BVH | LWS | 3DS | BIP | 3D | C3D | Other</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Mesh">
+    <rdfs:subClassOf rdf:resource="#GeometricalRepresentation"/>
+    <owl:disjointWith rdf:resource="#ImplicitRepresentation"/>
+    <owl:disjointWith rdf:resource="#PointSet"/>
+    <owl:disjointWith rdf:resource="#ContourSet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParametricRepresentation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#RasterData2D">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasDimensionY"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasDimensionX"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RasterData"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasMeasureType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#RasterData3D"/>
+    <owl:disjointWith rdf:resource="#RasterData4D"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ParametricRepresentation">
+    <rdfs:subClassOf rdf:resource="#GeometricalRepresentation"/>
+    <owl:disjointWith rdf:resource="#Mesh"/>
+    <owl:disjointWith rdf:resource="#PointSet"/>
+    <owl:disjointWith rdf:resource="#ContourSet"/>
+    <owl:disjointWith rdf:resource="#ImplicitRepresentation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RasterData">
+    <rdfs:subClassOf rdf:resource="#ShapeRepresentationAndDescription"/>
+    <owl:disjointWith rdf:resource="#Animation3D"/>
+    <owl:disjointWith rdf:resource="#BRep"/>
+    <owl:disjointWith rdf:resource="#StructuralDescriptor"/>
+    <owl:disjointWith rdf:resource="#GeometricalRepresentation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MRI">
+    <rdfs:subClassOf rdf:resource="#RasterData3D"/>
+    <owl:disjointWith rdf:resource="#Movie"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SubGroup">
+    <owl:disjointWith rdf:resource="#ShapeGroup"/>
+    <owl:disjointWith rdf:resource="#FileInfo"/>
+    <owl:disjointWith rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasCreator">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOwner">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMember">
+    <rdfs:range rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:domain rdf:resource="#SubGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasContactPerson">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSubGroup">
+    <rdfs:range rdf:resource="#SubGroup"/>
+    <rdfs:domain rdf:resource="#ShapeGroup"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasKeyword">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasGalleryImageURL">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasNumberOfTrimmedFaces">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >with trimmed face we refer only to trimmed parametric surface, if the B-Rep has parametric surfaces as faces.</rdfs:comment>
+    <rdfs:domain rdf:resource="#BRep"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasFileURL">
+    <rdfs:domain rdf:resource="#FileInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasRelatedResource">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Free text indicating publications which refer to this shape model, tools which use it, other shape models related to this one, and so on. In future versions this field might be modified to point to specific entries within the Digital Library, The Tool Rep. and the Shape Rep.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasContentType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AIR TRANSPORT | ANATOMY | ANIMAL | ARCHITECTURE | CHARACTER | | CULTURAL HERITAGE | ELECTRONIC | GEOGRAPHY | GROUND TRANSPORT | | INDUSTRIAL DESIGN | MECHANICAL DESIGN | MILITARY | MUSICAL | SPACE | SPORTS &amp; HOBBIES | WATER TRANSPORT # This field is not [required]. If a model does not belong to any of the classes available, the field should be left blank. In future versions the choice of one (or several) of these classes might be the base for a further set of "second-level" metadata (i.e. for ARCHITECTURal shapes it might be useful to know the historical period in which they have been created, the style, etc.). This property should not be present here however. Such a description should be made in the appropriate metadata structure of each domain ontology!</rdfs:comment>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDimensionT">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dimension Time. It indicates the number of frames of a movie</rdfs:comment>
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPointInfo">
+    <rdfs:domain rdf:resource="#PointSet"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    > normal | local disc | higher order local model | Color | Confidence Value</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCodec">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Uncompressed | Indeo | Microsoft Video | mpeg | mpeg 4 | DivX | Cinepak | other</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="isGeneratedFromParametricDescription">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >yes exact | yes approximate | no</rdfs:comment>
+    <rdfs:domain rdf:resource="#ImplicitRepresentation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="hasNextHierarchicalLevel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If the structural descriptor is hierarchical, a structural descriptor is associated to each level
+of the hierarchy. This property identifies the next level of the hierarchy.</rdfs:comment>
+    <rdfs:range rdf:resource="#StructuralDescriptor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#StructuralDescriptor"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:ID="hasPreviousHierarchicalLevel"/>
+    </owl:inverseOf>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:about="#hasImplicitBasis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ImplicitRepresentation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >barycentric | power basis | other [required]</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfScans">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PointSet"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFileSize">
+    <rdfs:domain rdf:resource="#FileInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfVerticesAtMinRes">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of vertices at minimum resolution   
+Type: integer   
+Meaning: 
+number of vertices in the mesh at minimum resolution that can  be extracted from this multiresolution mesh, it is the same as the number   of vertices of the final mesh in the simplification process performed   for building this multiresolution mesh. </rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStructuralDescriptor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#StructuralDescriptor"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfVertices">
+    <rdfs:domain rdf:resource="#Mesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMRIModality">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >| CT | NM | MR | DS | DR | US | OT |</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isSelfIntersecting">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+          <owl:Class rdf:about="#ImplicitRepresentation"/>
+          <owl:Class rdf:about="#BRep"/>
+          <owl:Class rdf:about="#ParametricRepresentation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfVerticesAtMaxRes">
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of vertices at maximum resolution   
+Type: integer   
+Meaning: 
+number of vertices in the mesh at maximum resolution that can   be extracted from this multiresolution mesh, it is the same as the number   of vertices of the original mesh from which this multiresolution mesh   has been built through simplification.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEchoTime">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Echo time expressed in milliseconds (ms)</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasApproximationTolerance">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#ImplicitRepresentation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This should be constrained to be 0 if "Generated from Parametric Description" is different from "yes approximate"</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+          <owl:Class rdf:about="#SubGroup"/>
+          <owl:Class rdf:about="#ShapeGroup"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaximumDimension">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is the maximum dimension of the atomic elements forming the structural descriptor.</rdfs:comment>
+    <rdfs:domain rdf:resource="#MultiDimensionalStructuralDescriptor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isSimplyConnected">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#MultiDimensionalStructuralDescriptor"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property is true if all the atomic elements of the multi-dimensional structural descriptor are simply connected.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ManifoldSurfaceMesh: triangular | quadrangular | polygonal | composite [required]
+ManifoldVolumeMesh: tetrahedral | hexahedral | other [required]
+BRep: polygonal | analytical | parametric | implicit | mixed [required]
+PointSet: Aggregated | Multiple Scans | Individual [required]
+Implicit: Polynomial | Bezier | BSpline
+Parametric: Polynomial | Rational | Bezier | BSpline | NURBS
+StructuralDescriptor: Medial Axis | Animation Skeleton | Reeb Graph | Shock Graph | Bisector | Contour Tree | other</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Mesh"/>
+          <owl:Class rdf:about="#BRep"/>
+          <owl:Class rdf:about="#PointSet"/>
+          <owl:Class rdf:about="#ImplicitRepresentation"/>
+          <owl:Class rdf:about="#ParametricRepresentation"/>
+          <owl:Class rdf:about="#StructuralDescriptor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAcquisitionDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The date in which it has been acquired</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasParametricDescriptionURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ImplicitRepresentation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfTilesAtMaxRes">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of tiles at maximum resolution   
+Type: integer   
+Meaning: 
+number of tiles (triangles if surface mesh, tetrahedra if volume   mesh) in the mesh at maximum resolution that can be extracted from this   multiresolution mesh, it is the same as the number of tiles of the   original mesh from which this multiresolution mesh has been built through   simplification. </rdfs:comment>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasMeasureType">
+    <rdfs:domain rdf:resource="#RasterData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Black&amp;White | Greyscale | Indexed | RGB | Height (Depth - Distance - Range - Elevation) | XYZ</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfTemporalPositions">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ># semantically equal to the number of frames</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#DynamicMRI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPixelSpacing">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pixel spacing in millimeters (mm)</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPatientAge">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >xxxD or W or M or Y</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasOrigin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isAttributed">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#StructuralDescriptor"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True if attributes can be associated to either nodes and edges of the descriptor. False otherwise.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasStatus">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >approved | not approved | under review [automatic]</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBitStored">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfPoints">
+    <rdfs:domain rdf:resource="#PointSet"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPatientSex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M | F | O</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasGeometryFormat">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Animation3D"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VRML | X3D | OBJ | OFF | PLY | Other [required]</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUploadPerson">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPurpose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Applies currently only for Animation3D, Mesh, CADRepresentation</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#FileInfo"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isRegular">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfFaces">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Mesh"/>
+          <owl:Class rdf:about="#BRep"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfNonManifoldVertices">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> #A non-manifold vertex is a vertex such that its star consists of several connected components.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBoundingBoxDiagonal">
+    <rdfs:domain rdf:resource="#GeometricalRepresentation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Allowed values: 1 (lowest) - 5 (highest)</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isRawData">
+    <rdfs:domain rdf:resource="#MotionCapture"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The mocap data has not been modified from the original</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isTrimmed">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ParametricSurface"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAccuracyOfConnectionBetweenFaces">
+    <rdfs:domain rdf:resource="#BRep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfConnectedSimplexesOfDim2">
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> #The number of connected components, which are not 1-connnected and are composed of simplexes of dimension 2</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfWireEdges">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> #dangling edges not bounding any triangle.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasOnlyAnalyticalSurfaces">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >analytical surfaces include planes, spheres, cylinders</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#BRep"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxContinuityAcrossFaces">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G0| G1 | G2 | superior</rdfs:comment>
+    <rdfs:domain rdf:resource="#BRep"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="maintainsTopology">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Simplification maintains topology   
+Type: boolean   
+Meaning: 
+whether the topology of the original mesh (manifold condition,   number of connected components, etc.) was maintained during the   siplification process that has built this multiresolution mesh, or not;   if yes, then all mesh representation extracted by this multiresolution   mesh have the same topology as the original mesh; otherwise, this is   not guaranteed.   
+
+
+Note: 
+some simplification operators intrinsically maintain topology,   while others do not; so this information in some cases may be deduced   from the simplification operator.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDimensionZ">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMeshType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >indicates if the MT is made for Surface meshes or for volume meshes.
+Type: string in {surface, volume} (alternative: integer in {2, 3})  Meaning: the type of mesh that is represented by this multiresolution mesh, i.e., the type of mesh from which this multiresolution mesh  has been built through simplification</rdfs:comment>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberofNodes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#CentreLineGraph"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of nodes of the graph.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasName">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ShapeRepresentationAndDescription"/>
+          <owl:Class rdf:about="#ShapeGroup"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >[required] # Example "Rabbit"</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAttributeDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#StructuralDescriptor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Explanation of the attributes meaning
+</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSound">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFlipAngle">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Flip angle expressed in degrees</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isTopologicalComplex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#BRep"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It has a property that the intersection of two faces is a subface </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfSingularities">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> [required]</rdfs:comment>
+    <rdfs:domain rdf:resource="#ImplicitSurface"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isOriented">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasInterpolatorType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >translation | rotation | scaling | morphing | other</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#KeyFrame"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCopyright">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasAnimationFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;MPG-4 BAP | MPG-4 FAP | WRL | WRK | TRK |
+Vertex-based | MAX | MB | BVH | LWS | 3DS | BIP | 3D | C3D | Other> 
+</rdfs:comment>
+    <rdfs:domain rdf:resource="#Animation3D"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUncompressedFileSize">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ># Optional, the size of the video file in bytes if saved as uncompressed video</rdfs:comment>
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfEdges">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Mesh"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasGenus">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+          <owl:Class rdf:about="#BRep"/>
+          <owl:Class rdf:about="#ImplicitRepresentation"/>
+          <owl:Class rdf:about="#ParametricSurface"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfBoundaries">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDimension">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >maximum dimension of the cells</rdfs:comment>
+    <rdfs:domain rdf:resource="#BRep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDuration">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Movie"/>
+          <owl:Class rdf:about="#Animation3D"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >number of seconds</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isAcyclic">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True if there exists no paths from a node to itself. False otherwise.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#CentreLineGraph"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMagneticFieldStrength">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Magnetic Field Strength expressed in Tesla</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasPreviousHierarchicalLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasNextHierarchicalLevel"/>
+    <rdfs:domain rdf:resource="#StructuralDescriptor"/>
+    <rdfs:range rdf:resource="#StructuralDescriptor"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasFileInfo">
+    <rdfs:range rdf:resource="#FileInfo"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLevelNumber">
+    <rdfs:domain rdf:resource="#SubGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfTilesAtMinRes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of tiles at minimum resolution   
+Type: integer   
+Meaning: 
+number of tiles (triangles if surface mesh, tetrahedra if volume   mesh) in the mesh at minimum resolution that can be extracted from this multiresolution mesh, it is the same as the number of tiles of the final   mesh in the simplification process performed for building this multiresolution mesh. </rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCreationMethod">
+    <rdfs:domain rdf:resource="#StructuralDescriptor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasThickness">
+    <rdfs:domain rdf:resource="#RasterData3D"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >this should deprecated (we have actually hasDimensionT and hasDimensionZ in the specific subclasses)</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStreaming">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAcquisitionTime">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The time of acquisition</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfKeyFrames">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#KeyFrame"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >number of the important key frames of key frame animation</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasImageOrientation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ImageOrientation is a double 3D vector x1,y1,z1 and x2,y2,z2 (in mm). It give the orientation of the image with respect to the global coordinate system
+
+It should be in the form [x1,y1,z1] ; [x2,y2,z2]</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasRepetitionTime">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The repetition time in milliseconds (ms)</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDegree">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ImplicitRepresentation"/>
+          <owl:Class rdf:about="#ParametricRepresentation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasThumbnailImageURL">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfCells">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldVolumeMesh"/>
+          <owl:Class rdf:about="#NonManifoldMesh"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCurvilinearEdges">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#BRep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasReceivingCoil">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >| surface | body |</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasFileFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SurfaceMesh: OFF | PLY | VRML | OBJ | Other [required]
+VolumeMesh: ASCII | TRI | Other [required]
+BRep: IGES | STEP | IRIT | SAT | Other [required]
+ParametricRepresentation: IGES | STEP | IRIT | Other [required]
+PointCloud: MENSI Scanner ASCII | Leica Scanner | Other [required]
+Image2D: Bitmap | TIFF | GIF | JPEG | EPS | BMP | PNG | SVG | Other [required]
+Image3D: DICOM | Other
+Movie: MPEG | AVI | Quicktime | Windows Media | Real | Other [required]
+Animation3D: ZIP | GZIP | TAR | TGZ | Other [required]</rdfs:comment>
+    <rdfs:domain rdf:resource="#FileInfo"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isConformal">
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDimensionY">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RasterData2D"/>
+          <owl:Class rdf:about="#RasterData3D"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasGranularity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Granularity   
+Type: integer   
+Meaning: 
+a measure of granularity of elementary moves for resolution   increase and decrease that this multiresolution mesh is able to support,   it is the same as the number of tiles (triangles if surface mesh,   tetrahedra if volume mesh) involved in a single simplification operation   during the construction of this multiresolution mesh.  
+
+More precisely, a simplification operation removes a (bigger) set of   triangles T1 and replaces it with another (smaller) set of triangles,   the granularity is the cardinality of set T1.   A smaller granularity means that the multiresolution mesh is able to   extract a wider variety of meshes at different resolutions. </rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAcquisitionMatrix">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Matrix of n rows x m columns of Float
+note: must be better defined, it will be added in the future</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It defines the size of the Matrix  n by m.
+It is in the form [n by m]</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isPlanar">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ParametricCurve"/>
+          <owl:Class rdf:about="#ImplicitCurve"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPatientWeight">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Weight in Kilos</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasStructureType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GraphLike | H-Anim | MultiDimensional | Other (we should list here any specialization of the structural class)</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Animation3D"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTextureFormat">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+          <owl:Class rdf:about="#BRep"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bitmap | TIFF | GIF | JPEG | EPS | TGA | Other</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxDegreePolynomial">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >integer | unknown</rdfs:comment>
+    <rdfs:domain rdf:resource="#ParametricSurface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFrameRate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Frames per second</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Animation3D"/>
+          <owl:Class rdf:about="#Movie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAcquisitionFrequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#DynamicMRI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasFileName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#FileInfo"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >[required] # Example 'MOD01_imati.wrl', 'rab_simpl.off'</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfIsolatedVertices">
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOf2Cycles">
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> #the 2-cycles in a mesh are maximal components of the mesh bounding voids</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isDirected">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property is true if to each edge is given a unique direction.</rdfs:comment>
+    <rdfs:domain rdf:resource="#CentreLineGraph"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfControlPoints">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ParametricRepresentation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isOriginatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfAcquisitionPlane">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#DynamicMRI"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It indicates the number of acquisition planes chosen for the session</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasRepresentativeShape">
+    <rdfs:domain rdf:resource="#ShapeGroup"/>
+    <rdfs:range rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasScaleOfOriginal">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correspondence between units in the digital shape model and units in the original shape. Example: if the extent of the digital shape in the x direction ranges from 10 to 100 and 'Scale of Original' = 5.0, then the corresponding extent of the original shape is (100-10)*5.0 = 450. If the original shape, as described in the field 'Origin Description', is a real object, then its extent is assumed to be measured in meters.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#GeometricalRepresentation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCreationDate">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaterial">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If a material (or more) is associated to the shape, it can be specified here (e.g. for simulation or rendering purposes). This field is not required.</rdfs:comment>
+    <rdfs:domain rdf:resource="#GeometricalRepresentation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDimensionX">
+    <rdfs:domain rdf:resource="#RasterData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOf1ConnectedComponents">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> #a 1-connected component is any maximal submesh composed only of triangles which can be navigated by paths involving only triangles and edges shared by two triangles</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFiltering">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#MotionCapture"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kind of treatment that has had the mocap data.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTopologicalDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;uri> #a file providing description of the different topological meaningful parts in which a non-manifold mesh can be segmented by the application of TopMesh. The mesh is partitioned into the following class of components (1) Graphs of wire-edges: a graph of wire-edges is any maximal connected component of the mesh consisting only of wire-edges, (2) Maximal 1-connected submeshes of triangles homeomomorphic to 2-manifold with boundaries obtained by splitting the mesh at non-manifold edges also called sheets, (3) 2-cycles also called shells</rdfs:comment>
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfConnectedSimplexesOfDim1">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;positive integer> #The number of connected components, which are not 1-connnected and are composed of simplexes of dimension 1</rdfs:comment>
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLastModifiedDate">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ># This should be updated when metadata entries are modified by an authorized user</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSliceThickness">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >slice tickness in millimeters (mm)</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUploadDate">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ># This should be updated also when metadata entries are modified by an authorized user</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="usesSimplificationTool">
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Link to the tool (if it exists) in the tool repository which has been used for the simplification</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMRIAcquisitionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Possible values: | 2D | 3D | 
+
+- 2D: the 3D volume is made of a stack of 2D acquisitions.
+- 3D: the 3D volume is made of one 3D volume acquisition.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSynthesisDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Description of the process of creation of the shape. This should include all the tasks performed to generate the model starting from the original shape given in "Origin Description" such as, for example, the scanning process and registration (if model acquired from physical world), the polygonization algorithm employed (if synthetic shape), simplification, remeshing, and so on.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isClosed">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ParametricRepresentation"/>
+          <owl:Class rdf:about="#ImplicitCurve"/>
+          <owl:Class rdf:about="#ImplicitSurface"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasContinuity">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ParametricCurve"/>
+          <owl:Class rdf:about="#ParametricSurface"/>
+          <owl:Class rdf:about="#ImplicitCurve"/>
+          <owl:Class rdf:about="#ImplicitSurface"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ParametricCurve: G1 | G2 | superior [required]
+ParametricSurface: G-1 | G0 | G1 | G2 | superior [required]
+ImplicitCurve: G-1 | G0 | G1 | G2 | superior [required]
+ImplicitSurface: G-1 | G0 | G1 | G2 | superior [required]</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLicense">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This might be turned into "License*" in future versions. Currently, this field does not influence the accessibility of the data, while it is meant to provide information about how and in which cases the data may be used.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPolynomialModelType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bezier | B-Spline | NURBS |Algebraic</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ParametricRepresentation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAvailabilityLevel">
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Allowed values: project-only, everyone</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasModelURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ShapeRepresentationAndDescription"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBoundingBox">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ImplicitCurve"/>
+          <owl:Class rdf:about="#ImplicitSurface"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNormals">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasGeoReference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >gps-coordinates | other</rdfs:comment>
+    <rdfs:domain rdf:resource="#PointSet"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfArcs">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of arcs of the graph</rdfs:comment>
+    <rdfs:domain rdf:resource="#CentreLineGraph"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTextures">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+          <owl:Class rdf:about="#BRep"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMinContinuityOfTheFaces">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G-1 | G0 | G1 | G2 | superior [required]</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#BRep"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasNumberOfConnectedComponents">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of connected components forming the structural descriptor.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Mesh"/>
+          <owl:Class rdf:about="#BRep"/>
+          <owl:Class rdf:about="#StructuralDescriptor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDigitalImages">
+    <rdfs:domain rdf:resource="#PointSet"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >raw | focus-corrected | mixed | other</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasImagePosition">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(x,y,z in mm - image origin) 
+A 3D vector  in the form [x,y,z]</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MRI"/>
+          <owl:Class rdf:about="#DynamicMRI"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfNonManifoldEdges">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A non-manifold edge is any edge shared by three or more triangles.A non-manifold edge is any edge shared by three or more triangles.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#NonManifoldMesh"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTypeOfParametricDomain">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tensor-based | Triangular</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ParametricRepresentation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSimplificationOperator">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Type: string in {edge collapse, vertex removal, triangle collapse,  vertex-pair collapse, ...}   
+Meaning: 
+the operator used to simplify the original mesh from   which this multiresolution mesh has been built </rdfs:comment>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isOrientable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ManifoldSurfaceMesh"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="hasMultiResolutionModel">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasMaximumResolutionMesh"/>
+    </owl:inverseOf>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+          <owl:Class rdf:about="#ManifoldVolumeMesh"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#MultiResolutionModel"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasMaximumResolutionMesh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasMultiResolutionModel"/>
+    <rdfs:domain rdf:resource="#MultiResolutionModel"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Type: link (pointing either to a surface mesh or to a volume mesh)   
+
+Meaning: 
+link to the original mesh from which this multiresolution mesh  has been built through simplification. </rdfs:comment>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ManifoldSurfaceMesh"/>
+          <owl:Class rdf:about="#ManifoldVolumeMesh"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:InverseFunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

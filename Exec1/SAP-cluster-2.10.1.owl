@@ -1,0 +1,1594 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/Ontology1168858779.owl#"
+    xmlns:ico="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#"
+    xmlns:cto="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#"
+    xmlns:sco="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#"
+  xml:base="http://www.owl-ontologies.com/Ontology1168858779.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="file:/C:/infoOntology_v1.0.owl"/>
+    <owl:imports rdf:resource="file:/C:/toolOntology_v1.12.1.owl"/>
+    <owl:imports rdf:resource="file:/C:/shapeOntology_v2.3.1.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="SoftwareTool">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="ProcessingSystem"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="AcquisitionSession">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProcessingSession"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="EnvironmentCondition"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasEnvironmentConditions"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="RealObject"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasInput"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasLogisticConditions"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="LogisticCondition"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="AcquisitionSystem"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasProcessingSystem"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AcquisitionSystem">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="AcquisitionDevice"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasAcquisitionDevice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ProcessingSystem"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PreciousObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:ID="AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToScanPreciousObjects"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="WaveAbsorbentObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToScanWaveAbsorbentObjects"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="OutdoorScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isUsedOutdoor"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#LogisticCondition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AcquisitionCondition"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EnvironmentCondition"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="HapticDevice">
+    <rdfs:subClassOf rdf:resource="#AcquisitionDeviceType"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CameraDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CTScanDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LaserDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StructuredLightDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TimeOfFlightDevice"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A haptic device is a device which allows a user to interact with a computer by receiving tactile feed back. This feedback is achieved by applying a degree of opposing force to the user along the x, y, and z axes. 
+There are two main types of haptic devices:- glove or pen-type devices that allow the user to "touch" and manipulate 3-dimensional virtual objects
+- devices that allow users to "feel" textures of 2-dimensional objects with a pen or mouse-type interface</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ColorAcquiringScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToAcquireColor"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="TransparentObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToScanTransparentObjects"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#LaserDevice">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CameraDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CTScanDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#HapticDevice"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuredLightDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TimeOfFlightDevice"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Any of several devices that emit highly amplified and coherent radiation of one or more discrete frequencies.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ReflectiveObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToScanReflectiveObjects"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#TimeOfFlightDevice">
+    <rdfs:subClassOf rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This scanning technology refers to device that calculate distance (3d point poisition in space) by measuring the time of flight of very short pulses of light</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CameraDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CTScanDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#HapticDevice"/>
+    <owl:disjointWith rdf:resource="#LaserDevice"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuredLightDevice"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="UnderwaterScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isUsedUnderwater"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearCamera">
+    <rdfs:subClassOf rdf:resource="#LaserDevice"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FragileObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToScanFragileObjects"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="IndoorScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isUsedIndoor"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="NotLightAbsorbentObject">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RealObject"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isLightAbsorbent"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LightAbsorbentObject"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#StructuredLightDevice">
+    <rdfs:subClassOf rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A light pattern projected at a known angle onto a scene. Observing the lateral position elements of the light pattern in the image reveals depth information.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CameraDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CTScanDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#HapticDevice"/>
+    <owl:disjointWith rdf:resource="#LaserDevice"/>
+    <owl:disjointWith rdf:resource="#TimeOfFlightDevice"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CTScanDevice">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computer Tomography Scan Device. Applications: Medicine. (see DICOM as standard output shape)</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CameraDevice"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#HapticDevice"/>
+    <owl:disjointWith rdf:resource="#LaserDevice"/>
+    <owl:disjointWith rdf:resource="#StructuredLightDevice"/>
+    <owl:disjointWith rdf:resource="#TimeOfFlightDevice"/>
+    <rdfs:subClassOf rdf:resource="#AcquisitionDeviceType"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NotReflectiveObject">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ReflectiveObject"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isReflective"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RealObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ToolSession">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProcessingSession"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="ShapeData"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasInput"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasProcessingSystem"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MovableObject">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NotMovableObject"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isMovable"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RealObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#NotMovableObject">
+    <owl:disjointWith rdf:resource="#MovableObject"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isMovable"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RealObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentCondition">
+    <rdfs:subClassOf rdf:resource="#AcquisitionCondition"/>
+    <owl:disjointWith rdf:resource="#LogisticCondition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Step"/>
+  <owl:Class rdf:ID="Trick"/>
+  <owl:Class rdf:about="#ProcessingSession">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasInput"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#ShapeData"/>
+              <owl:Class rdf:about="#RealObject"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#ShapeData"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasOutput"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RealObject">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasBeenAcquiredBy"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#AcquisitionSession"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MovableObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:about="#isMovable"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="BoundingBox"/>
+  <owl:Class rdf:ID="ErrorDeclaredByProducer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Error"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#LightAbsorbentObject">
+    <rdfs:subClassOf rdf:resource="#RealObject"/>
+    <owl:disjointWith rdf:resource="#NotLightAbsorbentObject"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isLightAbsorbent"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="NotTransparentObject">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isTransparent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#RealObject"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TransparentObject"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#CameraDevice">
+    <rdfs:subClassOf rdf:resource="#AcquisitionDeviceType"/>
+    <owl:disjointWith rdf:resource="#CTScanDevice"/>
+    <owl:disjointWith rdf:resource="#HapticDevice"/>
+    <owl:disjointWith rdf:resource="#LaserDevice"/>
+    <owl:disjointWith rdf:resource="#StructuredLightDevice"/>
+    <owl:disjointWith rdf:resource="#TimeOfFlightDevice"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LightAbsorbentObjectScanningDevice">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#hasDeviceType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#AcquisitionDeviceType"/>
+                  <owl:Restriction>
+                    <owl:onProperty>
+                      <owl:FunctionalProperty rdf:ID="isAbleToScanLightAbsorbentObjects"/>
+                    </owl:onProperty>
+                    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</owl:hasValue>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+          <owl:Class rdf:about="#AcquisitionDevice"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#ReflectiveObject">
+    <rdfs:subClassOf rdf:resource="#RealObject"/>
+    <owl:disjointWith rdf:resource="#NotReflectiveObject"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isReflective"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#TransparentObject">
+    <owl:disjointWith rdf:resource="#NotTransparentObject"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isTransparent"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#RealObject"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AcquisitionDevice">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TO BE COMPLETED</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A system of sensors connected to a storage device (usually a PC), designed for acquiring data.</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasTrick">
+    <rdfs:domain rdf:resource="#AcquisitionSession"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasBeenUsedInAcquisitionSession"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Trick"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasBeenUsedInAcquisitionSession">
+    <rdfs:range rdf:resource="#AcquisitionSession"/>
+    <owl:inverseOf rdf:resource="#hasTrick"/>
+    <rdfs:domain rdf:resource="#Trick"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasBeenAcquiredBy">
+    <rdfs:range rdf:resource="#ProcessingSession"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RealObject"/>
+          <owl:Class rdf:about="#ShapeData"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasInput"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasFunctionality">
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Functionality"/>
+    <rdfs:domain rdf:resource="#Step"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAuthor">
+    <rdfs:domain rdf:resource="#Trick"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasAcquisitionDevice">
+    <rdfs:domain rdf:resource="#AcquisitionSystem"/>
+    <rdfs:range rdf:resource="#AcquisitionDevice"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAcquisitionConditions">
+    <rdfs:domain rdf:resource="#AcquisitionSession"/>
+    <rdfs:range rdf:resource="#AcquisitionCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="useTool">
+    <rdfs:domain rdf:resource="#Step"/>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInputShapeType">
+    <rdfs:domain rdf:resource="#Step"/>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ShapeType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasInput">
+    <owl:inverseOf rdf:resource="#hasBeenAcquiredBy"/>
+    <rdfs:domain rdf:resource="#ProcessingSession"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ShapeData"/>
+          <owl:Class rdf:about="#RealObject"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasOutput">
+    <rdfs:domain rdf:resource="#ProcessingSession"/>
+    <rdfs:range rdf:resource="#ShapeData"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOwner">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RealObject"/>
+          <owl:Class rdf:about="#AcquisitionSystem"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasLightingConditions">
+    <rdfs:domain rdf:resource="#EnvironmentCondition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPowerSupplyAvailability">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#LogisticCondition"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasObstacles">
+    <rdfs:domain rdf:resource="#LogisticCondition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasLocationType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#EnvironmentCondition"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasWeather">
+    <rdfs:domain rdf:resource="#EnvironmentCondition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="hasHistory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ProcessingSession"/>
+    <rdfs:domain rdf:resource="#ProcessingSession"/>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:ID="hasInformalName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPhysicalLocation">
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasLogisticConditions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#LogisticCondition"/>
+    <rdfs:domain rdf:resource="#AcquisitionSession"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isOptical">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxDistanceInMeters">
+    <rdfs:domain rdf:resource="#EnvironmentCondition"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNext">
+    <rdfs:domain rdf:resource="#Step"/>
+    <rdfs:range rdf:resource="#Step"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="withErrorMeasurement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Error"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isContactDevice">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isMovable">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AcquisitionDeviceType"/>
+          <owl:Class rdf:about="#RealObject"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ProcessingSession"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDiagonal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#BoundingBox"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMinScanBBox">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:range rdf:resource="#BoundingBox"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaterial">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#RealObject"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isReflective">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#RealObject"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasObjectID">
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Trick"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPreviousSession">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ProcessingSession"/>
+    <rdfs:subPropertyOf rdf:resource="#hasHistory"/>
+    <rdfs:range rdf:resource="#ProcessingSession"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMechanicalToolSupport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AcquisitionDevice"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasEnvironmentConditions">
+    <rdfs:range rdf:resource="#EnvironmentCondition"/>
+    <rdfs:domain rdf:resource="#AcquisitionSession"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isTransparent">
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasWeightKG">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasProcessingSystem">
+    <rdfs:domain rdf:resource="#ProcessingSession"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ProcessingSystem"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToScanLightAbsorbentObjects">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isUsedOutdoor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDevicePrice">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AcquisitionDevice"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasConditions">
+    <rdfs:domain rdf:resource="#ErrorDeclaredByProducer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDeviceType">
+    <rdfs:range rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDevice"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSpatialUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#BoundingBox"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToScanFragileObjects">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToScanTransparentObjects">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isLightAbsorbent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSessionPrice">
+    <rdfs:domain rdf:resource="#AcquisitionSession"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToScanReflectiveObjects">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToScanWaveAbsorbentObjects">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToAcquireColor">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasShapeRepresentation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ShapeRepresentationAndDescription"/>
+    <rdfs:domain rdf:resource="#ShapeData"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isDestructive">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isActive">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSystemPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AcquisitionSystem"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isAbleToScanPreciousObjects">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Trick"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBrandName">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasErrorDeclared">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ErrorDeclaredByProducer"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxScanBBox">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdfs:range rdf:resource="#BoundingBox"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasObjectBoundingBox">
+    <rdfs:range rdf:resource="#BoundingBox"/>
+    <rdfs:domain rdf:resource="#RealObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPrevious">
+    <rdfs:domain rdf:resource="#Step"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Step"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isUsedIndoor">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTemperatureInCelsius">
+    <rdfs:domain rdf:resource="#EnvironmentCondition"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasOutputShapeType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ShapeType"/>
+    <rdfs:domain rdf:resource="#Step"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isAbleToScanMediumAbsorbentObjects">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isUsedUnderwater">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasModelName">
+    <rdfs:domain rdf:resource="#AcquisitionDeviceType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <ShapeData rdf:ID="FrogMT"/>
+  <RealObject rdf:ID="BlackTire">
+    <hasWeightKG rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >3.0</hasWeightKG>
+    <isReflective rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isReflective>
+    <isTransparent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isTransparent>
+    <isLightAbsorbent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isLightAbsorbent>
+    <hasMaterial rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rubber</hasMaterial>
+    <hasInformalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Black Tire</hasInformalName>
+    <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isMovable>
+    <hasObjectBoundingBox>
+      <BoundingBox rdf:ID="BlackTireBB">
+        <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cm</hasSpatialUnit>
+        <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >50</hasDiagonal>
+      </BoundingBox>
+    </hasObjectBoundingBox>
+    <hasObjectID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4DKS00023</hasObjectID>
+  </RealObject>
+  <Step rdf:ID="Triangulation">
+    <hasPrevious>
+      <Step rdf:ID="RegistrationStep">
+        <hasNext rdf:resource="#Triangulation"/>
+      </Step>
+    </hasPrevious>
+  </Step>
+  <LaserDevice rdf:ID="IMPACTSystemDISI">
+    <isUsedIndoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isUsedIndoor>
+    <isAbleToScanLightAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isAbleToScanLightAbsorbentObjects>
+    <isAbleToScanPreciousObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isAbleToScanPreciousObjects>
+    <isDestructive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isDestructive>
+    <isUsedUnderwater rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isUsedUnderwater>
+    <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isMovable>
+    <isOptical rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isOptical>
+    <isAbleToScanTransparentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isAbleToScanTransparentObjects>
+    <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isActive>
+    <hasMinScanBBox>
+      <BoundingBox rdf:ID="BBox1cm">
+        <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1</hasDiagonal>
+        <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cm</hasSpatialUnit>
+      </BoundingBox>
+    </hasMinScanBBox>
+    <isAbleToScanFragileObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isAbleToScanFragileObjects>
+    <hasMaxScanBBox>
+      <BoundingBox rdf:ID="BBox40cm">
+        <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cm</hasSpatialUnit>
+        <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >40</hasDiagonal>
+      </BoundingBox>
+    </hasMaxScanBBox>
+    <isAbleToScanReflectiveObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isAbleToScanReflectiveObjects>
+    <hasBrandName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IMPACT - DISI</hasBrandName>
+    <isAbleToScanMediumAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isAbleToScanMediumAbsorbentObjects>
+    <isAbleToScanWaveAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isAbleToScanWaveAbsorbentObjects>
+    <isUsedOutdoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isUsedOutdoor>
+    <isContactDevice rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isContactDevice>
+    <hasModelName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >impact</hasModelName>
+  </LaserDevice>
+  <AcquisitionDevice rdf:ID="UUScanner">
+    <hasDevicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >25000</hasDevicePrice>
+    <hasDeviceType>
+      <LaserDevice rdf:ID="MicrowaveScanner">
+        <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isMovable>
+        <isAbleToScanLightAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToScanLightAbsorbentObjects>
+        <isDestructive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isDestructive>
+        <isAbleToScanFragileObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanFragileObjects>
+        <isUsedOutdoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isUsedOutdoor>
+        <isOptical rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isOptical>
+        <isAbleToScanWaveAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToScanWaveAbsorbentObjects>
+        <isAbleToScanTransparentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanTransparentObjects>
+        <isUsedUnderwater rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isUsedUnderwater>
+        <isAbleToScanMediumAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToScanMediumAbsorbentObjects>
+        <isUsedIndoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isUsedIndoor>
+        <isAbleToScanPreciousObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanPreciousObjects>
+        <isAbleToScanReflectiveObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanReflectiveObjects>
+      </LaserDevice>
+    </hasDeviceType>
+  </AcquisitionDevice>
+  <RealObject rdf:ID="BimbaConNastrino">
+    <hasBeenAcquiredBy>
+      <AcquisitionSession rdf:ID="BimbaconNastrinoIMATISession">
+        <hasOutput>
+          <ShapeData rdf:ID="BimbaNastrino"/>
+        </hasOutput>
+        <hasEnvironmentConditions>
+          <EnvironmentCondition rdf:ID="BimbaIMATISessionEnvCond">
+            <hasLocationType xml:lang="en">indoor</hasLocationType>
+          </EnvironmentCondition>
+        </hasEnvironmentConditions>
+        <hasInput rdf:resource="#BimbaConNastrino"/>
+        <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2006/10/07</hasDate>
+        <hasLogisticConditions>
+          <LogisticCondition rdf:ID="BimbaIMATISessLogCond">
+            <hasPowerSupplyAvailability xml:lang="en">yes</hasPowerSupplyAvailability>
+          </LogisticCondition>
+        </hasLogisticConditions>
+        <hasProcessingSystem>
+          <AcquisitionSystem rdf:ID="IMATISystem">
+            <hasAcquisitionDevice>
+              <AcquisitionDevice rdf:ID="IMATIScanner">
+                <hasDevicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >35000</hasDevicePrice>
+                <hasDeviceType>
+                  <LaserDevice rdf:ID="MinoltaVivid910">
+                    <hasBrandName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Minolta</hasBrandName>
+                    <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isMovable>
+                    <hasMinScanBBox>
+                      <BoundingBox rdf:ID="BBoxMinMinoltaVivid910">
+                        <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >cm</hasSpatialUnit>
+                        <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >1</hasDiagonal>
+                      </BoundingBox>
+                    </hasMinScanBBox>
+                    <isDestructive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isDestructive>
+                    <isAbleToScanLightAbsorbentObjects rdf:datatype=
+                    "http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isAbleToScanLightAbsorbentObjects>
+                    <isAbleToScanMediumAbsorbentObjects rdf:datatype=
+                    "http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isAbleToScanMediumAbsorbentObjects>
+                    <isUsedUnderwater rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isUsedUnderwater>
+                    <hasErrorDeclared>
+                      <ErrorDeclaredByProducer rdf:ID="ErrorDeclaredByProducer_41">
+                        <withErrorMeasurement rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >1/10 millemeter</withErrorMeasurement>
+                        <hasConditions rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >By using the telelens and the distance from the object exactly equals to  600 millimeters</hasConditions>
+                      </ErrorDeclaredByProducer>
+                    </hasErrorDeclared>
+                    <isAbleToScanPreciousObjects rdf:datatype=
+                    "http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isAbleToScanPreciousObjects>
+                    <isUsedOutdoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isUsedOutdoor>
+                    <isContactDevice rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isContactDevice>
+                    <isAbleToScanTransparentObjects rdf:datatype=
+                    "http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isAbleToScanTransparentObjects>
+                    <hasMaxScanBBox>
+                      <BoundingBox rdf:ID="BBoxMaxMinoltaVivid910">
+                        <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >50</hasDiagonal>
+                        <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >cm</hasSpatialUnit>
+                      </BoundingBox>
+                    </hasMaxScanBBox>
+                    <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isActive>
+                    <isUsedIndoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isUsedIndoor>
+                    <hasModelName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Minolta Vivid 910</hasModelName>
+                    <isAbleToScanReflectiveObjects rdf:datatype=
+                    "http://www.w3.org/2001/XMLSchema#boolean"
+                    >false</isAbleToScanReflectiveObjects>
+                    <isAbleToScanFragileObjects rdf:datatype=
+                    "http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isAbleToScanFragileObjects>
+                    <isAbleToAcquireColor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isAbleToAcquireColor>
+                    <isOptical rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</isOptical>
+                  </LaserDevice>
+                </hasDeviceType>
+                <hasMechanicalToolSupport rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Tripod</hasMechanicalToolSupport>
+              </AcquisitionDevice>
+            </hasAcquisitionDevice>
+          </AcquisitionSystem>
+        </hasProcessingSystem>
+      </AcquisitionSession>
+    </hasBeenAcquiredBy>
+    <hasWeightKG rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >18.0</hasWeightKG>
+    <hasMaterial rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >chalk</hasMaterial>
+    <hasObjectID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dd23444</hasObjectID>
+    <hasPhysicalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >imati</hasPhysicalLocation>
+    <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isMovable>
+    <isTransparent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isTransparent>
+    <isLightAbsorbent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isLightAbsorbent>
+    <isReflective rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isReflective>
+    <hasInformalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bimba con nastrino</hasInformalName>
+    <hasObjectBoundingBox>
+      <BoundingBox rdf:ID="BBoxBimba">
+        <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cm</hasSpatialUnit>
+        <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >20</hasDiagonal>
+      </BoundingBox>
+    </hasObjectBoundingBox>
+  </RealObject>
+  <BoundingBox rdf:ID="CesarBB">
+    <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cm</hasSpatialUnit>
+    <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >30</hasDiagonal>
+  </BoundingBox>
+  <AcquisitionSession rdf:ID="FrogUUatMPIISession">
+    <hasLogisticConditions>
+      <LogisticCondition rdf:ID="ForgAtMPIILogCondition">
+        <hasPowerSupplyAvailability xml:lang="en">yes</hasPowerSupplyAvailability>
+      </LogisticCondition>
+    </hasLogisticConditions>
+    <hasOutput>
+      <ShapeData rdf:ID="FrogAtMPIIShapeData"/>
+    </hasOutput>
+    <hasInput>
+      <RealObject rdf:ID="FrogUU">
+        <hasObjectBoundingBox>
+          <BoundingBox rdf:ID="BBoxFrogUU">
+            <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >cm</hasSpatialUnit>
+            <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >8</hasDiagonal>
+          </BoundingBox>
+        </hasObjectBoundingBox>
+        <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isMovable>
+        <hasMaterial rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >chalk</hasMaterial>
+        <hasObjectID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >898329AS89</hasObjectID>
+        <hasBeenAcquiredBy rdf:resource="#FrogUUatMPIISession"/>
+        <isReflective rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isReflective>
+        <hasBeenAcquiredBy>
+          <AcquisitionSession rdf:ID="FrogUUSession">
+            <hasLogisticConditions>
+              <LogisticCondition rdf:ID="FrogUULogCondition">
+                <hasPowerSupplyAvailability xml:lang="en">yes</hasPowerSupplyAvailability>
+              </LogisticCondition>
+            </hasLogisticConditions>
+            <hasProcessingSystem>
+              <AcquisitionSystem rdf:ID="UUSystem">
+                <hasAcquisitionDevice rdf:resource="#UUScanner"/>
+              </AcquisitionSystem>
+            </hasProcessingSystem>
+            <hasInput rdf:resource="#FrogUU"/>
+            <hasEnvironmentConditions>
+              <EnvironmentCondition rdf:ID="FrogUUEnvCondition">
+                <hasWeather rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                ></hasWeather>
+                <hasLocationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                ></hasLocationType>
+              </EnvironmentCondition>
+            </hasEnvironmentConditions>
+            <hasOutput>
+              <ShapeData rdf:ID="FrogUUShapeData">
+                <hasBeenAcquiredBy>
+                  <ToolSession rdf:ID="RemeshingFrogUUatMPII">
+                    <hasInput rdf:resource="#FrogUUShapeData"/>
+                    <hasPreviousSession rdf:resource="#FrogUUatMPIISession"/>
+                    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >2007/01/07</hasDate>
+                    <hasOutput>
+                      <ShapeData rdf:ID="FrogUUatMPIIRemeshed">
+                        <hasBeenAcquiredBy>
+                          <ToolSession rdf:ID="FrogUUMPIIMT">
+                            <hasInput rdf:resource="#FrogUUatMPIIRemeshed"/>
+                            <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >2007/02/07</hasDate>
+                            <hasPreviousSession rdf:resource="#RemeshingFrogUUatMPII"/>
+                            <hasOutput rdf:resource="#FrogMT"/>
+                          </ToolSession>
+                        </hasBeenAcquiredBy>
+                      </ShapeData>
+                    </hasOutput>
+                  </ToolSession>
+                </hasBeenAcquiredBy>
+              </ShapeData>
+            </hasOutput>
+            <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >2005/10/06</hasDate>
+          </AcquisitionSession>
+        </hasBeenAcquiredBy>
+        <hasWeightKG rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.3</hasWeightKG>
+        <hasPhysicalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Utrecht University</hasPhysicalLocation>
+        <hasInformalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >frog</hasInformalName>
+        <isLightAbsorbent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isLightAbsorbent>
+        <isTransparent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isTransparent>
+      </RealObject>
+    </hasInput>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2006/12/07</hasDate>
+    <hasEnvironmentConditions>
+      <EnvironmentCondition rdf:ID="FrogAtMPIIEnvCondition">
+        <hasLocationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></hasLocationType>
+      </EnvironmentCondition>
+    </hasEnvironmentConditions>
+  </AcquisitionSession>
+  <BoundingBox rdf:ID="BBoxMaxRolandLPX">
+    <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cm</hasSpatialUnit>
+    <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >50</hasDiagonal>
+  </BoundingBox>
+  <AcquisitionDevice rdf:ID="MPIIScanner">
+    <hasDevicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >20000</hasDevicePrice>
+    <hasDeviceType>
+      <LaserDevice rdf:ID="RolandLPX">
+        <isUsedOutdoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isUsedOutdoor>
+        <isOptical rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isOptical>
+        <isDestructive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isDestructive>
+        <isAbleToScanLightAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanLightAbsorbentObjects>
+        <hasModelName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Roland LPX-250</hasModelName>
+        <hasMinScanBBox>
+          <BoundingBox rdf:ID="BBoxMinRolandLPX">
+            <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >cm</hasSpatialUnit>
+            <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >1</hasDiagonal>
+          </BoundingBox>
+        </hasMinScanBBox>
+        <isAbleToScanFragileObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanFragileObjects>
+        <hasBrandName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Qubic</hasBrandName>
+        <isContactDevice rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isContactDevice>
+        <isUsedIndoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isUsedIndoor>
+        <isAbleToScanPreciousObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanPreciousObjects>
+        <isAbleToAcquireColor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToAcquireColor>
+        <hasMaxScanBBox rdf:resource="#BBoxMaxRolandLPX"/>
+        <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isMovable>
+        <isUsedUnderwater rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isUsedUnderwater>
+        <isAbleToScanReflectiveObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToScanReflectiveObjects>
+        <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isActive>
+        <isAbleToScanTransparentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToScanTransparentObjects>
+        <isAbleToScanMediumAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanMediumAbsorbentObjects>
+      </LaserDevice>
+    </hasDeviceType>
+  </AcquisitionDevice>
+  <RealObject rdf:ID="CesarHead">
+    <hasInformalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cesar Head</hasInformalName>
+    <isReflective rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isReflective>
+    <isLightAbsorbent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isLightAbsorbent>
+    <hasMaterial rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >marble</hasMaterial>
+    <hasWeightKG rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >8.0</hasWeightKG>
+    <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isMovable>
+    <hasObjectBoundingBox rdf:resource="#CesarBB"/>
+    <isTransparent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isTransparent>
+    <hasObjectID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >456456</hasObjectID>
+  </RealObject>
+  <ShapeData rdf:ID="CesarHeadShapeData"/>
+  <AcquisitionDevice rdf:ID="DISILaserScanner">
+    <hasDeviceType rdf:resource="#IMPACTSystemDISI"/>
+    <hasMechanicalToolSupport rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >conveyor belt</hasMechanicalToolSupport>
+    <hasDevicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10000</hasDevicePrice>
+  </AcquisitionDevice>
+  <AcquisitionDevice rdf:ID="DISIcameraScanner">
+    <hasDevicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >12222</hasDevicePrice>
+    <hasDeviceType>
+      <LinearCamera rdf:ID="LinearCameraDISI">
+        <isAbleToScanMediumAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanMediumAbsorbentObjects>
+        <isOptical rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isOptical>
+        <isAbleToScanWaveAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanWaveAbsorbentObjects>
+        <isUsedOutdoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isUsedOutdoor>
+        <isAbleToAcquireColor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToAcquireColor>
+        <isUsedUnderwater rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isUsedUnderwater>
+        <isDestructive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isDestructive>
+        <isUsedIndoor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isUsedIndoor>
+        <hasMaxScanBBox rdf:resource="#BBox40cm"/>
+        <isAbleToScanPreciousObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanPreciousObjects>
+        <isAbleToScanReflectiveObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isAbleToScanReflectiveObjects>
+        <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isActive>
+        <isAbleToScanLightAbsorbentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanLightAbsorbentObjects>
+        <isAbleToScanTransparentObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanTransparentObjects>
+        <isAbleToScanFragileObjects rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</isAbleToScanFragileObjects>
+        <hasBrandName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DISI - Canon</hasBrandName>
+        <hasMinScanBBox rdf:resource="#BBox1cm"/>
+        <isContactDevice rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isContactDevice>
+        <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</isMovable>
+      </LinearCamera>
+    </hasDeviceType>
+  </AcquisitionDevice>
+  <Step rdf:ID="Remeshing">
+    <hasPrevious rdf:resource="#Triangulation"/>
+  </Step>
+  <BoundingBox rdf:ID="GoldenGobletBB">
+    <hasDiagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >30</hasDiagonal>
+    <hasSpatialUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cm</hasSpatialUnit>
+  </BoundingBox>
+  <Trick rdf:ID="PowderOn">
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Put white powder over the object</hasDescription>
+  </Trick>
+  <RealObject rdf:ID="GoldenGoblet">
+    <hasObjectBoundingBox rdf:resource="#GoldenGobletBB"/>
+    <isTransparent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isTransparent>
+    <isMovable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isMovable>
+    <hasPhysicalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Utrecht University</hasPhysicalLocation>
+    <isLightAbsorbent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</isLightAbsorbent>
+    <isReflective rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</isReflective>
+    <hasInformalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Golden Goblet</hasInformalName>
+    <hasMaterial rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Metal</hasMaterial>
+    <hasWeightKG rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.8</hasWeightKG>
+    <hasObjectID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3HGG2331</hasObjectID>
+  </RealObject>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

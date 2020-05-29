@@ -1,0 +1,2833 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ico="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#"
+  xml:base="http://www.aimatshape.net/ontologies/toolCommonOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="file:/C:/infoOntology_v1.0.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="CompressionFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AuthenticationFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CodingFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CompilationPlatform">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pair operating system/compiler that allows to compile a given tool</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="VisibilityFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AnnotationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DistanceFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EngineeringNumericalSimulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ReMeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Functionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OptimizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="MeshingFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#EngineeringNumericalSimulationFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReMeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnnotationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling of the physical (thermal, mechanic, electro-magnetic) behavior of real (solid or fluid) objects. Different methods may be used for such modeling.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DistanceFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Functionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OptimizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#AuthenticationFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CodingFunctionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#CompressionFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ManifoldVolumeBRep">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BRep"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ParametricRepresentation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Curve or surface represented by the image of a map from a domain of R (resp. R^2) to R^2 (resp. R^3)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Algorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Algorithm class is the base class of a hierarchy of classes representing algorithms provided by a software tool.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#OptimizationFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DistanceFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReMeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnnotationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Functionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Library">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SoftwareTool"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Piece of code that performs some task but needs to be wrapped into an application before running.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ReMeshingFunctionality">
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DistanceFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodingFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Functionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Re-tiles the input mesh to improve sampling and/or shape of elements.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnnotationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ImplicitSurface">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ImplicitRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ManifoldSurfaceMesh">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Mesh"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the union of faces is a surface</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ImplicitCurve">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ImplicitRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ParametricSurface">
+    <rdfs:subClassOf rdf:resource="#ParametricRepresentation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ClusteringFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The process of dividing a dataset into mutually exclusive groups such that the members of each group are as "close" as possible to one another, and different groups are as "far" as possible from one another, where distance is measured with respect to all available variables.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MedialAxisFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Macro">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Source code that must be interpreted by an independent application.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTool"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTool"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="requiresTool"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NonPhotoRealisticFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BRep">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ShapeType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AnnotationFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DistanceFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Functionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="MeshRepairingFunctionality">
+    <rdfs:subClassOf rdf:resource="#ReMeshingFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RealisticRenderingFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RasterData3D">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RasterData"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RasterData2D"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RasterData4D"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="TriangulationFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SubdivisionFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NearestNeighborFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Functionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines acceptable types for class Algorithm. Categories of algorithms in the Shape Processing domain.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SoftwareRelease">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasDownloadURL"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Release represents a release of a given tool. A typical tool will be in relation with several Release objects representing its release versions, i.e. 1.0, 2.0 etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#RasterData">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ShapeType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CodingFunctionality">
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DistanceFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ShapeMatchingFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ShapeInterrogationFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#DistanceFunctionality">
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VisualizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="RegularRemeshingFunctionality">
+    <rdfs:subClassOf rdf:resource="#ReMeshingFunctionality"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Amounts to replacing an unstructured input mesh by a structured one (also called regular mesh). In a structured mesh all internal vertices are surrounded by a constant number of elements. In an unstructured mesh all internal vertices are not necessarily surrounded by a constant number of elements. The structured remeshing techniques are sorted by the type and regularity of the generated mesh</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ParametricCurve">
+    <rdfs:subClassOf rdf:resource="#ParametricRepresentation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#VisualizationFunctionality">
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntersectionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#IntersectionFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Detects or computes the intersection of two (or more) objects</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StructuringFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MultiResolutionModel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ShapeType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#StructuringFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReconstructionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RasterData4D">
+    <rdfs:subClassOf rdf:resource="#RasterData"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RasterData2D"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RasterData3D"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ImplicitRepresentation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ShapeType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Shape data structure handled by the tool. THE SHAPES COMMON ONTOLOGY SHOULD BE IMPORTED AND THE ShapeRepresentation class should be selected as the range for this property!!!</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PointSet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unstructured set of points sampled on the shape</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ReconstructionFunctionality">
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeometryImprovementFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GeometryImprovementFunctionality">
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ParameterizationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Mesh">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Decomposition of a region of space into elementary objects called faces. 
+Faces are linked through incidence relationships. 
+Faces have dimensions ranging from 0 to the dimension of the object: 
+	0-dimensional faces are called vertices, 
+ 	1-dimensional faces are called edges, 
+ 	2-dimensional faces are called facets, 
+and Faces of maximal dimension are called cells.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ParameterizationFunctionality">
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransformFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SubdivisionFunctionality">
+    <rdfs:subClassOf rdf:resource="#StructuringFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PlugIn">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTool"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#requiresTool"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTool"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An executable loaded and controlled by an independent application</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ManifoldVolumeMesh">
+    <rdfs:subClassOf rdf:resource="#Mesh"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TransformFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the transform of the input </rdfs:comment>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LevelOfDetailsFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#RasterData2D">
+    <rdfs:subClassOf rdf:resource="#RasterData"/>
+    <owl:disjointWith rdf:resource="#RasterData3D"/>
+    <owl:disjointWith rdf:resource="#RasterData4D"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LevelOfDetailsFunctionality">
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConvexityFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ShapeInfo">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Shape data structure handled by a  tool</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ManifoldSurfaceBRep">
+    <rdfs:subClassOf rdf:resource="#BRep"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NonManifoldMesh">
+    <rdfs:subClassOf rdf:resource="#Mesh"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ConvexityFunctionality">
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcquisitionFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndependentApplication">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTool"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An independent executable ready to perform some task. It may be provided as binary or source code.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SoftwareTool">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasLastModifiedDate"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasUploadDate"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Main class: tool stored in the Tool Repository</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AcquisitionFunctionality">
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#ConvexityFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StatisticalAnalysisFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StatisticalAnalysisFunctionality">
+    <owl:disjointWith rdf:resource="#AcquisitionFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ModelingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConvexityFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="StructuralDescriptor">
+    <rdfs:subClassOf rdf:resource="#ShapeType"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The shape is represented with respect to its relevant parts</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ModelingFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#StatisticalAnalysisFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConvexityFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#AcquisitionFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SamplingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Animation3D">
+    <rdfs:subClassOf rdf:resource="#ShapeType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SamplingFunctionality">
+    <owl:disjointWith rdf:resource="#ConvexityFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#QueryFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#AcquisitionFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#StatisticalAnalysisFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#ModelingFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ContourSet">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GeometricalRepresentation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#QueryFunctionality">
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#AcquisitionFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#ConvexityFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MeshingFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ModelingFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#SamplingFunctionality"/>
+    <owl:disjointWith rdf:resource="#StatisticalAnalysisFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MeshingFunctionality">
+    <owl:disjointWith rdf:resource="#GeometryImprovementFunctionality"/>
+    <owl:disjointWith rdf:resource="#SamplingFunctionality"/>
+    <owl:disjointWith rdf:resource="#StructuringFunctionality"/>
+    <owl:disjointWith rdf:resource="#TransformFunctionality"/>
+    <owl:disjointWith rdf:resource="#StatisticalAnalysisFunctionality"/>
+    <owl:disjointWith rdf:resource="#AnnotationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ModelingFunctionality"/>
+    <owl:disjointWith rdf:resource="#OptimizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#CodingFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisibilityFunctionality"/>
+    <owl:disjointWith rdf:resource="#QueryFunctionality"/>
+    <owl:disjointWith rdf:resource="#ConvexityFunctionality"/>
+    <owl:disjointWith rdf:resource="#EngineeringNumericalSimulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#DistanceFunctionality"/>
+    <owl:disjointWith rdf:resource="#IntersectionFunctionality"/>
+    <owl:disjointWith rdf:resource="#VisualizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#LevelOfDetailsFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReconstructionFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#AcquisitionFunctionality"/>
+    <owl:disjointWith rdf:resource="#ParameterizationFunctionality"/>
+    <owl:disjointWith rdf:resource="#ReMeshingFunctionality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NonManifoldBRep">
+    <rdfs:subClassOf rdf:resource="#BRep"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GeometricalRepresentation">
+    <rdfs:subClassOf rdf:resource="#ShapeType"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="implements">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="#Algorithm"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRelease">
+    <rdfs:range rdf:resource="#SoftwareRelease"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOwner">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasShapeType">
+    <rdfs:range rdf:resource="#ShapeType"/>
+    <rdfs:domain rdf:resource="#ShapeInfo"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasFunctionality">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Algorithm"/>
+          <owl:Class rdf:about="#SoftwareTool"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="providedBy"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Functionality"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTutorial">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IndependentApplication"/>
+          <owl:Class rdf:about="#Library"/>
+          <owl:Class rdf:about="#Macro"/>
+          <owl:Class rdf:about="#PlugIn"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasContactPerson">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDemo">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IndependentApplication"/>
+          <owl:Class rdf:about="#Library"/>
+          <owl:Class rdf:about="#Macro"/>
+          <owl:Class rdf:about="#PlugIn"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCreator">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#requiresTool">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IndependentApplication"/>
+          <owl:Class rdf:about="#Library"/>
+          <owl:Class rdf:about="#Macro"/>
+          <owl:Class rdf:about="#PlugIn"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCompilationPlatform">
+    <rdfs:range rdf:resource="#CompilationPlatform"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInput">
+    <rdfs:range rdf:resource="#ShapeInfo"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#providedBy">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Algorithm"/>
+          <owl:Class rdf:about="#SoftwareTool"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="#hasFunctionality"/>
+    <rdfs:domain rdf:resource="#Functionality"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutput">
+    <rdfs:range rdf:resource="#ShapeInfo"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasBugsRepository">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasBenchmarkURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasShapeFormat">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Shape file format</rdfs:comment>
+    <rdfs:domain rdf:resource="#ShapeInfo"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasDownloadURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Main URL and mirrors. [required]
+</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSpaceDimension">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dimension of mathematical space of the tool. (R^1 | R^2 | R^3 | R^4 | Any Dimension)</rdfs:comment>
+    <rdfs:domain rdf:resource="#ShapeInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasUsersMailingList">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasReviewURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="supportsCompiler">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >gcc 3.3.3 | Visual C++ 6 | etc.</rdfs:comment>
+    <rdfs:domain rdf:resource="#CompilationPlatform"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDevelopersMailingList">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasShapeExample">
+    <rdfs:domain rdf:resource="#ShapeInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Input or Output file example, relation with an object in the Shape Repository</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasScreenshot">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasHardwareRequirements">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasUILanguage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >English | French | Spanish | etc.</rdfs:comment>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasURL">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasUserComment">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasUIType">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Command Line | Graphical UI | Web Service | No UI</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasReference">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Algorithm"/>
+          <owl:Class rdf:about="#SoftwareTool"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a URL to a document related to the algorithm. The document may exist in the  Digital Library.
+</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasContent">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Source | Binary Executable | Documentation | Patch | Example Input Files</rdfs:comment>
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="supportsOS">
+    <rdfs:domain rdf:resource="#CompilationPlatform"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    > Windows NT | Windows 2000 | Red Hat 6.2 | etc.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasFormatConverter">
+    <rdfs:domain rdf:resource="#ShapeInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Converter between proprietary file format and standard file format
+</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="writtenWithProgrammingLanguage">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >C | C++ | Matlab | Python | Tcl | Java | Mathematica | Maple | Perl</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasExecutionPlatform">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Windows | Linux |  System Independent | etc.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasReleaseNotesDocument">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >New features, bug fixes, installation instructions
+</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasShapeSelfIntersection">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ShapeInfo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates if the tool supports or creates self-intersecting shapes</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLicense">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This might be turned into "License*" in future versions. Currently, this field does not influence the accessibility of the data, while it is meant to provide information about 'how and in which cases the data may be used'.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasLastModifiedDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ># This should be updated when metadata entries are modified by an authorized user</rdfs:comment>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasWorstSpaceComplexity">
+    <rdfs:domain rdf:resource="#Algorithm"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasInstallationInstructions">
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasUploadDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ># This should be updated also when metadata entries are modified by an authorized user</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasName">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SoftwareTool"/>
+          <owl:Class rdf:about="#Functionality"/>
+          <owl:Class rdf:about="#Algorithm"/>
+          <owl:Class rdf:about="#CompilationPlatform"/>
+          <owl:Class rdf:about="#SoftwareRelease"/>
+          <owl:Class rdf:about="#ShapeInfo"/>
+          <owl:Class rdf:about="#ShapeType"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >[required] # Example "Rabbit"</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasWorstTimeComplexity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Algorithm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDevelopmentStatus">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Development | Alpha | Beta | Stable</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPrice">
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAvailabilityLevel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Everyone, Project only, Project NIG</rdfs:comment>
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUninstallationInstructions">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasReleaseDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SoftwareRelease"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAverageTimeComplexity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Algorithm"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAverageSpaceComplexity">
+    <rdfs:domain rdf:resource="#Algorithm"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUploadPerson">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#PersonInfo"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#InstitutionInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isValidated">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >indicates if the metadata must be updated by the tool author after the  migration to the OMR.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Algorithm"/>
+          <owl:Class rdf:about="#ShapeInfo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSourceCodeURL">
+    <rdfs:domain rdf:resource="#SoftwareTool"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <RasterData3D rdf:ID="OtherRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> Other 3D raster data</hasName>
+  </RasterData3D>
+  <SamplingFunctionality rdf:ID="OtherSamplingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sampling >> Other sampling</hasName>
+  </SamplingFunctionality>
+  <RasterData3D rdf:ID="Movie">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> Movie</hasName>
+  </RasterData3D>
+  <GeometryImprovementFunctionality rdf:ID="CompletionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry improvment >> Completion</hasName>
+  </GeometryImprovementFunctionality>
+  <TriangulationFunctionality rdf:ID="DelaunayTriangulationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Triangulation >> Delaunay triangulation</hasName>
+  </TriangulationFunctionality>
+  <MedialAxisFunctionality rdf:ID="MedialAxisExactComputationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Medial axis >> Exact medial axis computation</hasName>
+  </MedialAxisFunctionality>
+  <ManifoldSurfaceBRep rdf:ID="OtherManifoldSurfaceBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold surface BRep >> Other manifold surface BRep</hasName>
+  </ManifoldSurfaceBRep>
+  <Functionality rdf:ID="AnimationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Animation</hasName>
+  </Functionality>
+  <AnnotationFunctionality rdf:ID="AutomaticAnnotationFunctionality">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Annotation >> Automatic annotation</hasName>
+  </AnnotationFunctionality>
+  <ParametricSurface rdf:ID="RationalParametricSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric surface >> Rational parametric surface</hasName>
+  </ParametricSurface>
+  <NonManifoldBRep rdf:ID="NonManifoldAnalyticalBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Non manifold BRep >> Non manifold analytical BRep</hasName>
+  </NonManifoldBRep>
+  <RasterData3D rdf:ID="GreyscaleRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> 3D greyscale raster data</hasName>
+  </RasterData3D>
+  <AnnotationFunctionality rdf:ID="ManualAnnotationFunctionality">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Annotation >> Manual annotation</hasName>
+  </AnnotationFunctionality>
+  <TransformFunctionality rdf:ID="MoebiusTransformAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under Moebius transforms</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Moebius</hasName>
+  </TransformFunctionality>
+  <MeshingFunctionality rdf:ID="VolumeMeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Output tiling is a volume mesh (tetrahedral, hexahedral or cellular complex)</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Meshing >> Volume meshing</hasName>
+  </MeshingFunctionality>
+  <RasterData4D rdf:ID="RGBRasterData4D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> 4D RGB raster data</hasName>
+  </RasterData4D>
+  <ParameterizationFunctionality rdf:ID="SphericalParameterizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Parameterization >> Spherical parameterization</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Compute a bijective correspondence of the input onto a spherical domain.</rdfs:comment>
+  </ParameterizationFunctionality>
+  <StructuralDescriptor rdf:ID="MultiDimensionalStructuralDescriptor">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structural  descriptor/ Multi-dimensional structural descriptor</hasName>
+  </StructuralDescriptor>
+  <ContourSet rdf:ID="OtherContourSet">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Contour set >> Other contour set</hasName>
+  </ContourSet>
+  <NonManifoldMesh rdf:ID="HexahedralNonManifoldVolumeMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Hexahedral non manifold volume</hasName>
+  </NonManifoldMesh>
+  <ParameterizationFunctionality rdf:ID="PlanarParameterizationAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes a bijective correspondence of the input onto the plane (typ. surface mesh)</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Parameterization >> Planar parameterization</hasName>
+  </ParameterizationFunctionality>
+  <RasterData3D rdf:ID="MagneticResonanceImage">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> Magnetic resonance Image</hasName>
+  </RasterData3D>
+  <ImplicitCurve rdf:ID="OtherImplicitCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit curve >> Other</hasName>
+  </ImplicitCurve>
+  <StructuralDescriptor rdf:ID="OtherStructuralDescriptor">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structural  descriptor/ Other structural  descriptor</hasName>
+  </StructuralDescriptor>
+  <ShapeInterrogationFunctionality rdf:ID="RidgesShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Ridges interrogation</hasName>
+  </ShapeInterrogationFunctionality>
+  <ReMeshingFunctionality rdf:ID="MeshSizeBasedRemeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximizes the trade-off between approximation quality and number of elements.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Remeshing based on size of the mesh</hasName>
+  </ReMeshingFunctionality>
+  <VisibilityFunctionality rdf:ID="VisibilityComplexAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visibility >> Visibility complex</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the visibility complex of the input</rdfs:comment>
+  </VisibilityFunctionality>
+  <RasterData3D rdf:ID="IndexedRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> 3D indexed raster data</hasName>
+  </RasterData3D>
+  <TriangulationFunctionality rdf:ID="RegularTriangulationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Triangulation >> Regular triangulation</hasName>
+  </TriangulationFunctionality>
+  <ImplicitCurve rdf:ID="PolynomialImplicitCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit curve >> Polynomial implicit curve</hasName>
+  </ImplicitCurve>
+  <MeshingFunctionality rdf:ID="OtherMeshingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Meshing >> Other meshing algorithm</hasName>
+  </MeshingFunctionality>
+  <ManifoldVolumeBRep rdf:ID="ManifoldImplicitVolumeBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold volume BRep >> Manifold implicit volume BRep</hasName>
+  </ManifoldVolumeBRep>
+  <StatisticalAnalysisFunctionality rdf:ID="OtherStatisticalAnalysisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Statistical analysis >> Other statistical analysis</hasName>
+  </StatisticalAnalysisFunctionality>
+  <NonManifoldMesh rdf:ID="TriangularNonManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Triangular non manifold surface</hasName>
+  </NonManifoldMesh>
+  <NonManifoldMesh rdf:ID="CompositeNonManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Composite non manifold surface</hasName>
+  </NonManifoldMesh>
+  <LevelOfDetailsFunctionality rdf:ID="ProgressiveRepresentationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Progressive representation</hasName>
+  </LevelOfDetailsFunctionality>
+  <TriangulationFunctionality rdf:ID="ConstrainedTriangulationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Triangulation >> Constrained triangulation</hasName>
+  </TriangulationFunctionality>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <Animation3D rdf:ID="KeyFrameAnimation">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3D animation >> Key frame animation</hasName>
+      </Animation3D>
+      <Animation3D rdf:ID="MotionCaptureAnimation">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3D animation >> Motion capture</hasName>
+      </Animation3D>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <Functionality rdf:ID="ConversionBetweenShapeCategoriesAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conversion between two representations of the same shape. The transformation has to be canonical without loss or addition of information.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conversion between shape categories</hasName>
+  </Functionality>
+  <ImplicitSurface rdf:ID="PolynomialImplicitSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit surface >> Polynomial implicit surface</hasName>
+  </ImplicitSurface>
+  <ManifoldVolumeBRep rdf:ID="ManifoldAnalyticalVolumeBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold volume BRep >> Manifold analytical volume BRep</hasName>
+  </ManifoldVolumeBRep>
+  <ReMeshingFunctionality rdf:ID="UniformRemeshingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Uniform remeshing</hasName>
+  </ReMeshingFunctionality>
+  <ReconstructionFunctionality rdf:ID="FusionOfMeasurementSetsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reconstruction >> Fusion of measurement sets</hasName>
+  </ReconstructionFunctionality>
+  <PointSet rdf:ID="PointSetWithNormalDirections">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Point set >> Point set with normal directions</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each point (or a subset of them) is given with a normal direction to the shape at this point</rdfs:comment>
+  </PointSet>
+  <owl:AllDifferent/>
+  <ImplicitSurface rdf:ID="BSplineImplicitSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit surface >> B-spline implicit surface</hasName>
+  </ImplicitSurface>
+  <RasterData4D rdf:ID="GreyscaleRasterData4D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> 4D greyscale raster data</hasName>
+  </RasterData4D>
+  <ManifoldVolumeBRep rdf:ID="ManifoldMixedVolumeBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold volume BRep >> Manifold mixed volume BRep</hasName>
+  </ManifoldVolumeBRep>
+  <ManifoldSurfaceMesh rdf:ID="QuadrangularManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold surface mesh >> Quadragular manifold surface</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each cell is a quadrangle</rdfs:comment>
+  </ManifoldSurfaceMesh>
+  <RasterData4D rdf:ID="HeightRasterData4D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> 4D height raster data</hasName>
+  </RasterData4D>
+  <RasterData4D rdf:ID="IndexedRasterData4D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> 4D indexed raster data</hasName>
+  </RasterData4D>
+  <LevelOfDetailsFunctionality rdf:ID="OtherLevelsOfDetailsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Other levels of details algorithm</hasName>
+  </LevelOfDetailsFunctionality>
+  <NonManifoldBRep rdf:ID="NonManifoldPolygonalBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Non manifold BRep >> Non manifold polygonal BRep</hasName>
+  </NonManifoldBRep>
+  <NearestNeighborFunctionality rdf:ID="SingleNearestNeighborAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Nearest neighbor >> Single nearest neighbor</hasName>
+  </NearestNeighborFunctionality>
+  <TriangulationFunctionality rdf:ID="OtherTriangulationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Triangulation >> Other triangulation</hasName>
+  </TriangulationFunctionality>
+  <RasterData3D rdf:ID="XYZRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> XYZ raster data</hasName>
+  </RasterData3D>
+  <ParametricCurve rdf:ID="NURBSParametricCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric curve >> NURB parametric curve</hasName>
+  </ParametricCurve>
+  <NonManifoldMesh rdf:ID="TetrahedralNonManifoldVolumeMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Tetrahedral non manifold volume</hasName>
+  </NonManifoldMesh>
+  <SubdivisionFunctionality rdf:ID="VoronoiDiagramAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Voronoi diagram</hasName>
+  </SubdivisionFunctionality>
+  <LevelOfDetailsFunctionality rdf:ID="RefinementAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Refinement</hasName>
+  </LevelOfDetailsFunctionality>
+  <StructuringFunctionality rdf:ID="ReebGraphAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Reeb graph</hasName>
+  </StructuringFunctionality>
+  <Functionality rdf:ID="ConversionBetweenFileFormatsAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conversion without loss or addition of information.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conversion between file formats</hasName>
+  </Functionality>
+  <IntersectionFunctionality rdf:ID="IntersectionDetectAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Intersection >> Detect intersection</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tests whether the input objects have a non empty common intersection or an empty one.</rdfs:comment>
+  </IntersectionFunctionality>
+  <ManifoldSurfaceBRep rdf:ID="ManifoldPolygonalSurfaceBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold surface BRep >> Manifold polygonal surface BRep</hasName>
+  </ManifoldSurfaceBRep>
+  <ParametricCurve rdf:ID="BSplineParametricCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric curve >> B-spline parametric curve</hasName>
+  </ParametricCurve>
+  <RasterData2D rdf:ID="BlackWhiteRasterData2D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 2D >> 2D black &amp; white raster data</hasName>
+  </RasterData2D>
+  <ModelingFunctionality rdf:ID="BooleanOperationsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Boolean operations</hasName>
+  </ModelingFunctionality>
+  <NonManifoldBRep rdf:ID="OtherNonManifoldBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Non manifold BRep >> Other non manifold BRep</hasName>
+  </NonManifoldBRep>
+  <RasterData3D rdf:ID="BlackWhiteRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> 3D black &amp; white raster data</hasName>
+  </RasterData3D>
+  <EngineeringNumericalSimulationFunctionality rdf:ID="OtherEngineeringNumericalSimulationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engineering numerical simulation >> Other</hasName>
+  </EngineeringNumericalSimulationFunctionality>
+  <NonManifoldBRep rdf:ID="NonManifoldImplicitBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Non manifold BRep >> Non manifold implicit BRep</hasName>
+  </NonManifoldBRep>
+  <ClusteringFunctionality rdf:ID="OtherClusteringAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Clustering >> Other clustering</hasName>
+  </ClusteringFunctionality>
+  <ManifoldVolumeBRep rdf:ID="OtherManifoldVolumeBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold volume BRep >> Other manifold volume BRep</hasName>
+  </ManifoldVolumeBRep>
+  <ReMeshingFunctionality rdf:ID="QualityOfElementsBasedRemeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Emphasis on the shape of elements</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Remeshing based on quality of elements</hasName>
+  </ReMeshingFunctionality>
+  <AnnotationFunctionality rdf:ID="OtherAnnotationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Annotation >> Other annotation</hasName>
+  </AnnotationFunctionality>
+  <Animation3D rdf:ID="OtherAnimation3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3D animation >> Other 3D animation</hasName>
+  </Animation3D>
+  <ShapeInterrogationFunctionality rdf:ID="GeodesicDistanceShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Geodesic distance interrogation</hasName>
+  </ShapeInterrogationFunctionality>
+  <LevelOfDetailsFunctionality rdf:ID="MechanicalSimplificationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Mechanical simplification</hasName>
+  </LevelOfDetailsFunctionality>
+  <ParametricCurve rdf:ID="OtherParametricCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric curve >> Other</hasName>
+  </ParametricCurve>
+  <NonManifoldMesh rdf:ID="PolygonalNonManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Polygonal non manifold surface</hasName>
+  </NonManifoldMesh>
+  <PointSet rdf:ID="PointSetWithLocalEllipses">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each point (or a subset of them) is given with an ellipsis centered at this point and included in the tangent space at this point</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Point set >> Point set with local ellipses</hasName>
+  </PointSet>
+  <EngineeringNumericalSimulationFunctionality rdf:ID="MechanicAnalysisAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computation of deflection, internal forces or stresses</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engineering numerical simulation >> Mechanical analysis</hasName>
+  </EngineeringNumericalSimulationFunctionality>
+  <RasterData2D rdf:ID="GreyscaleRasterData2D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 2D >> 2D greyscale raster data</hasName>
+  </RasterData2D>
+  <PointSet rdf:ID="PointSetWithHigherOrderLocalModels">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each point (or a subset of them) is given with a higher order information than the tangent space or the normal vector at the point (higher order interpolant)</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Point set >> Point set with higher order local models</hasName>
+  </PointSet>
+  <QueryFunctionality rdf:ID="RangeSearchQueryAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Range search</hasName>
+  </QueryFunctionality>
+  <GeometryImprovementFunctionality rdf:ID="FeatureRecoveryAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry improvment >> Feature recovery</hasName>
+  </GeometryImprovementFunctionality>
+  <ConvexityFunctionality rdf:ID="ConvexHullAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the convex hull of the input (collection or single object)</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Convexity >> Convex hull</hasName>
+  </ConvexityFunctionality>
+  <TransformFunctionality rdf:ID="OtherTransformAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Other transform</hasName>
+  </TransformFunctionality>
+  <ReMeshingFunctionality rdf:ID="OtherReMeshingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Other remeshing</hasName>
+  </ReMeshingFunctionality>
+  <PointSet rdf:ID="OtherPointSet">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Point set >> Other point set</hasName>
+  </PointSet>
+  <MedialAxisFunctionality rdf:ID="MedialAxisApproximationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Medial axis >> Medial axis approximation</hasName>
+  </MedialAxisFunctionality>
+  <ModelingFunctionality rdf:ID="OffsettingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Offsetting</hasName>
+  </ModelingFunctionality>
+  <ShapeInterrogationFunctionality rdf:ID="SingularitiesShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Singularities</hasName>
+  </ShapeInterrogationFunctionality>
+  <ParametricSurface rdf:ID="PolynomialParametricSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric surface >> Polynomial parametric surface</hasName>
+  </ParametricSurface>
+  <TransformFunctionality rdf:ID="AffineTransformAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Affine transform</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under general affine transform</rdfs:comment>
+  </TransformFunctionality>
+  <OptimizationFunctionality rdf:ID="SmallestEnclosingCircleSphereAnnulusOptimizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Optimization >> Smallest enclosing circle, sphere and annulus</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the smallest circle, sphere or annulus enclosing input objects.</rdfs:comment>
+  </OptimizationFunctionality>
+  <ShapeInterrogationFunctionality rdf:ID="OtherShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Other shape interrogation</hasName>
+  </ShapeInterrogationFunctionality>
+  <ManifoldSurfaceMesh rdf:ID="CompositeManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold surface mesh >> Composite manifold surface</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each cell is either a triangle or a quadrangle</rdfs:comment>
+  </ManifoldSurfaceMesh>
+  <ConvexityFunctionality rdf:ID="OtherConvexityAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Convexity >> Other convexity algorithm</hasName>
+  </ConvexityFunctionality>
+  <ImplicitSurface rdf:ID="OtherImplicitSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit surface >> Other</hasName>
+  </ImplicitSurface>
+  <StructuringFunctionality rdf:ID="TopologyDecompositionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Topoly decomposition</hasName>
+  </StructuringFunctionality>
+  <ShapeInterrogationFunctionality rdf:ID="CurvatureShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Curvature interrogation</hasName>
+  </ShapeInterrogationFunctionality>
+  <ManifoldSurfaceBRep rdf:ID="ManifoldImplicitSurfaceBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold surface BRep >> Manifold implicit surface BRep</hasName>
+  </ManifoldSurfaceBRep>
+  <RasterData2D rdf:ID="IndexedRasterData2D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 2D >> 2D indexed raster data</hasName>
+  </RasterData2D>
+  <SubdivisionFunctionality rdf:ID="OtherSubdivisionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Other subdivision algorithm</hasName>
+  </SubdivisionFunctionality>
+  <RasterData3D rdf:ID="HeightRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> 3D height raster data</hasName>
+  </RasterData3D>
+  <GeometryImprovementFunctionality rdf:ID="OtherGeometryImprovementAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry improvment >> Other geometry improvement</hasName>
+  </GeometryImprovementFunctionality>
+  <RegularRemeshingFunctionality rdf:ID="SemiRegularRemeshingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Regular remeshing >> Semi-regular remeshing</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Generates a piecewise-regular mesh with subdivision connectivity.</rdfs:comment>
+  </RegularRemeshingFunctionality>
+  <ReconstructionFunctionality rdf:ID="ReconstructionFromMeasurementSetsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reconstruction >> Reconstruction from measurement sets</hasName>
+  </ReconstructionFunctionality>
+  <GeometryImprovementFunctionality rdf:ID="DenoisingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A process that attempts to remove whatever noise presented in the signal (regardless of the signal's frequency content) while preserving the signal itself.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry improvment >> Denoising</hasName>
+  </GeometryImprovementFunctionality>
+  <DistanceFunctionality rdf:ID="OtherDistanceAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Hausdorff distance >> Other distance algorithm</hasName>
+  </DistanceFunctionality>
+  <NonManifoldBRep rdf:ID="NonManifoldParametricBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Non manifold BRep >> Non manifold parametric BRep</hasName>
+  </NonManifoldBRep>
+  <ManifoldSurfaceMesh rdf:ID="OtherManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold surface mesh >> Other</hasName>
+  </ManifoldSurfaceMesh>
+  <Mesh rdf:ID="OtherMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Other mesh</hasName>
+  </Mesh>
+  <CodingFunctionality rdf:ID="OtherCodingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coding >> Other coding</hasName>
+  </CodingFunctionality>
+  <ManifoldSurfaceBRep rdf:ID="ManifoldMixedSurfaceBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold surface BRep >> Manifold mixed surface BRep</hasName>
+  </ManifoldSurfaceBRep>
+  <GeometricalRepresentation rdf:ID="OtherGeometricalRepresentation">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Other geometrical representation</hasName>
+  </GeometricalRepresentation>
+  <DistanceFunctionality rdf:ID="HausdorffDistanceCompareAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Takes three objects A, B and C and compares the Hausdorff distance between A and B with the Hausdorff distance between A and C.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Hausdorff distance >> Compare Hausdorff distances</hasName>
+  </DistanceFunctionality>
+  <DistanceFunctionality rdf:ID="EuclidianDistanceCompareAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Euclidean distance >> Compare Euclidean distances</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Takes three objects A, B and C and compares the distance between A and B with the distance between A and C.</rdfs:comment>
+  </DistanceFunctionality>
+  <AnnotationFunctionality rdf:ID="SupervisedAnnotationFunctionality">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Annotation >> Supervised annotation</hasName>
+  </AnnotationFunctionality>
+  <StructuralDescriptor rdf:ID="CentreLineGraph">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structural  descriptor/ Centre line graph</hasName>
+  </StructuralDescriptor>
+  <ManifoldSurfaceMesh rdf:ID="PolygonalManifoldSurfaceMesh">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each cell is a polygon</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold surface mesh >> Polygonal manifold surface</hasName>
+  </ManifoldSurfaceMesh>
+  <RasterData4D rdf:ID="BlackWhiteRasterData4D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> 4D black &amp; white raster data</hasName>
+  </RasterData4D>
+  <RegularRemeshingFunctionality rdf:ID="OtherRegularRemeshingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Regular remeshing >> Other regular remeshing</hasName>
+  </RegularRemeshingFunctionality>
+  <SamplingFunctionality rdf:ID="ImplicitSurfacesSamplingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sampling >> Implicit surfaces sampling</hasName>
+  </SamplingFunctionality>
+  <RealisticRenderingFunctionality rdf:ID="RayTracingRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Realistic rendering >> Ray-tracing</hasName>
+  </RealisticRenderingFunctionality>
+  <BRep rdf:ID="OtherBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Other BRep</hasName>
+  </BRep>
+  <IntersectionFunctionality rdf:ID="IntersectionComputeAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the common intersection between the input objects</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Intersection >> Compute intersection</hasName>
+  </IntersectionFunctionality>
+  <SamplingFunctionality rdf:ID="ParametricSurfacesSamplingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sampling >> Parametric surfaces sampling</hasName>
+  </SamplingFunctionality>
+  <owl:AllDifferent/>
+  <LevelOfDetailsFunctionality rdf:ID="GeometricSimplificationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Geometric simplification</hasName>
+  </LevelOfDetailsFunctionality>
+  <ShapeInterrogationFunctionality rdf:ID="AreaShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Area interrogation</hasName>
+  </ShapeInterrogationFunctionality>
+  <AuthenticationFunctionality rdf:ID="OtherAuthenticationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coding >> Authentication >> Other authentication algorithm</hasName>
+  </AuthenticationFunctionality>
+  <DistanceFunctionality rdf:ID="FrechetDistanceCompareAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Takes three objects A, B and C and compares the Frechet distance between A and B with the Hausdorff distance between A and C.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Frechet distance >> Compare Frechet distances</hasName>
+  </DistanceFunctionality>
+  <ParametricCurve rdf:ID="BezierParametricCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric curve >> Bezier parametric curve</hasName>
+  </ParametricCurve>
+  <QueryFunctionality rdf:ID="OtherQueryAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Other query algorithm</hasName>
+  </QueryFunctionality>
+  <DistanceFunctionality rdf:ID="HausdorffDistanceComputeAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the Hausdorff distance between two objects.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Hausdorff distance >> Compute Hausdorff distance</hasName>
+  </DistanceFunctionality>
+  <ReconstructionFunctionality rdf:ID="RegistrationOfMeasurementsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reconstruction >> Registration of measurements</hasName>
+  </ReconstructionFunctionality>
+  <RasterData2D rdf:ID="HeightRasterData2D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 2D >> 2D height raster data</hasName>
+  </RasterData2D>
+  <RealisticRenderingFunctionality rdf:ID="ShadingRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Realistic rendering >> Shading</hasName>
+  </RealisticRenderingFunctionality>
+  <ReconstructionFunctionality rdf:ID="OtherReconstructionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reconstruction >> Other reconstruction algorithm</hasName>
+  </ReconstructionFunctionality>
+  <ModelingFunctionality rdf:ID="CreationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Creation</hasName>
+  </ModelingFunctionality>
+  <SubdivisionFunctionality rdf:ID="ConvexDecompositionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Convex decomposition</hasName>
+  </SubdivisionFunctionality>
+  <EngineeringNumericalSimulationFunctionality rdf:ID="DiscreteElementAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engineering numerical simulation >> Discrete element simulation</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Method discretizing the physical properties of the object (simulation method).</rdfs:comment>
+  </EngineeringNumericalSimulationFunctionality>
+  <RasterData3D rdf:ID="RGBRasterData3D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 3D >> 3D RGB raster data</hasName>
+  </RasterData3D>
+  <ConvexityFunctionality rdf:ID="ExtremalPointsComputationAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the extremal points of the input (collection or single object)</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Convexity >> Extremal points computation</hasName>
+  </ConvexityFunctionality>
+  <MeshRepairingFunctionality rdf:ID="OtherMeshRepairingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Mesh repairing >> Other mesh repairing</hasName>
+  </MeshRepairingFunctionality>
+  <ManifoldVolumeBRep rdf:ID="ManifoldParametricVolumeBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold volume BRep >> Manifold parametric volume BRep</hasName>
+  </ManifoldVolumeBRep>
+  <Functionality rdf:ID="MorphingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Morphing</hasName>
+  </Functionality>
+  <ManifoldVolumeMesh rdf:ID="HexahedralManifoldVolumeMesh">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >all cells are hexahedra</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold volume mesh >> Hexahedral manifold volume</hasName>
+  </ManifoldVolumeMesh>
+  <RegularRemeshingFunctionality rdf:ID="PerfectlyRegularRemeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Generates a perfectly regular mesh.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Regular remeshing >> Perfectly-regular remeshing</hasName>
+  </RegularRemeshingFunctionality>
+  <StructuringFunctionality rdf:ID="OtherStructuringAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Other structuring algorithm</hasName>
+  </StructuringFunctionality>
+  <PointSet rdf:ID="PointSetWithLocalDiscs">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Point set >> Point set with local discs</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each point (or a subset of them) is given with a disc centered at this point and included in the tangent space at this point</rdfs:comment>
+  </PointSet>
+  <IntersectionFunctionality rdf:ID="OtherIntersectionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Intersection >> Other intersection algorithm</hasName>
+  </IntersectionFunctionality>
+  <RealisticRenderingFunctionality rdf:ID="SoftShadowingRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Realistic rendering >> Soft-shadowing</hasName>
+  </RealisticRenderingFunctionality>
+  <NonManifoldMesh rdf:ID="OtherNonManifoldMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Other</hasName>
+  </NonManifoldMesh>
+  <LevelOfDetailsFunctionality rdf:ID="ApproximationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Approximation</hasName>
+  </LevelOfDetailsFunctionality>
+  <RegularRemeshingFunctionality rdf:ID="HighlyRegularRemeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Generates a piecewise-regular mesh.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Regular remeshing >> Highly-regular remeshing</hasName>
+  </RegularRemeshingFunctionality>
+  <EngineeringNumericalSimulationFunctionality rdf:ID="FiniteElementAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engineering numerical simulation >> Finite element simulation</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A general discretization procedure of continuum problem posed by mathematically defined statements (simulation method).</rdfs:comment>
+  </EngineeringNumericalSimulationFunctionality>
+  <ShapeMatchingFunctionality rdf:ID="InexactAttributedGraphMatchingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape matching >> Inexact attributed graph matching</hasName>
+  </ShapeMatchingFunctionality>
+  <ParametricSurface rdf:ID="BSplineParametricSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric surface >> B-spline parametric surface</hasName>
+  </ParametricSurface>
+  <ContourSet rdf:ID="StructuredContourSet">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Contour set >> Structured contour set</hasName>
+  </ContourSet>
+  <RealisticRenderingFunctionality rdf:ID="RadiosityRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Realistic rendering >> Radiosity</hasName>
+  </RealisticRenderingFunctionality>
+  <SubdivisionFunctionality rdf:ID="PolygonDecompositionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Polygon decomposition</hasName>
+  </SubdivisionFunctionality>
+  <VisibilityFunctionality rdf:ID="OtherVisibilityAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visibility >> Other visibility algorithm</hasName>
+  </VisibilityFunctionality>
+  <owl:AllDifferent/>
+  <MedialAxisFunctionality rdf:ID="OtherMedialAxisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Medial axis >> Other medial axis algorithm</hasName>
+  </MedialAxisFunctionality>
+  <ManifoldVolumeMesh rdf:ID="TetrahedralManifoldVolumeMesh">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >all cells are tetrahedra</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold volume mesh >> Tetrahedral manifold volume</hasName>
+  </ManifoldVolumeMesh>
+  <MultiResolutionModel rdf:ID="MultiTesselationModel">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Multi-resolution model >> Multi-tesselation model</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Continuous and multi resolution model.</rdfs:comment>
+  </MultiResolutionModel>
+  <ModelingFunctionality rdf:ID="BlendingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Blending</hasName>
+  </ModelingFunctionality>
+  <NonManifoldBRep rdf:ID="NonManifoldMixedBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Non manifold BRep >> Non manifold mixed BRep</hasName>
+  </NonManifoldBRep>
+  <ParameterizationFunctionality rdf:ID="AtlasGenerationParameterizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Parameterization >> Atlas generation</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Performs a decomposition of the input shape into planar disc-like patches.</rdfs:comment>
+  </ParameterizationFunctionality>
+  <ReMeshingFunctionality rdf:ID="CompatibleRemeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Generates a series of meshes which establish correspondences among multiple shapes. The meshes produced must share the same connectivity but not the same geometry.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Compatible remeshing</hasName>
+  </ReMeshingFunctionality>
+  <ConvexityFunctionality rdf:ID="ConvexityTestAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tests an object for convexity</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Convexity >> Convexity test</hasName>
+  </ConvexityFunctionality>
+  <GeometryImprovementFunctionality rdf:ID="SmoothingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A process that removes high frequencies from the signal.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry improvment >> Smoothing</hasName>
+  </GeometryImprovementFunctionality>
+  <OptimizationFunctionality rdf:ID="SmallestEnclosingEllipseOptimizationAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the smallest ellipse enclosing input objects.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Optimization >> Smallest enclosing ellipse</hasName>
+  </OptimizationFunctionality>
+  <ModelingFunctionality rdf:ID="MinkowskiSumOperationsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Minkowski sum</hasName>
+  </ModelingFunctionality>
+  <VisibilityFunctionality rdf:ID="RayShootingVisibilityAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >answers ray shooting query in the input environment</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visibility >> Ray shooting</hasName>
+  </VisibilityFunctionality>
+  <ManifoldSurfaceMesh rdf:ID="TriangularManifoldSurfaceMesh">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each cell is a triangle</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold surface mesh >> Triangular manifold surface</hasName>
+  </ManifoldSurfaceMesh>
+  <GeometryImprovementFunctionality rdf:ID="FairingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry improvment >> Fairing</hasName>
+  </GeometryImprovementFunctionality>
+  <ModelingFunctionality rdf:ID="SynthesisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Synthesis</hasName>
+  </ModelingFunctionality>
+  <CompressionFunctionality rdf:ID="CompressionForStorageAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coding >> Compression >> Compression for storage</hasName>
+  </CompressionFunctionality>
+  <MeshRepairingFunctionality rdf:ID="WatertightMeshRepairingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Mesh repairing >> Watertight mesh repairing</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Converts a mesh with boundary into a closed model.</rdfs:comment>
+  </MeshRepairingFunctionality>
+  <NonPhotoRealisticFunctionality rdf:ID="HatchingRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Non photo-realistic rendering >> Hatching</hasName>
+  </NonPhotoRealisticFunctionality>
+  <SubdivisionFunctionality rdf:ID="PowerDiagramAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Power diagram</hasName>
+  </SubdivisionFunctionality>
+  <VisualizationFunctionality rdf:ID="OtherVisualizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Other visualization</hasName>
+  </VisualizationFunctionality>
+  <CompressionFunctionality rdf:ID="CompressionForTransmissionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coding >> Compression >> Compression for transmission</hasName>
+  </CompressionFunctionality>
+  <NonPhotoRealisticFunctionality rdf:ID="SilhouetteRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Non photo-realistic rendering >> Silhouette</hasName>
+  </NonPhotoRealisticFunctionality>
+  <ParametricRepresentation rdf:ID="OtherParametricRepresentation">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Other parametric representation</hasName>
+  </ParametricRepresentation>
+  <TransformFunctionality rdf:ID="ProjectiveTransformAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under projective transforms</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Projective transform</hasName>
+  </TransformFunctionality>
+  <Functionality rdf:ID="OtherAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Other algorithm</hasName>
+  </Functionality>
+  <EngineeringNumericalSimulationFunctionality rdf:ID="ElectroMagneticAnalysisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engineering numerical simulation >> Electro-magnetic analysis</hasName>
+  </EngineeringNumericalSimulationFunctionality>
+  <ParameterizationFunctionality rdf:ID="OtherParameterizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Parameterization >> Other parameterization</hasName>
+  </ParameterizationFunctionality>
+  <DistanceFunctionality rdf:ID="EuclidianDistanceComputeAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the Euclidean distance between two objects.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Euclidean distance >> Compute Euclidean distance</hasName>
+  </DistanceFunctionality>
+  <ShapeInterrogationFunctionality rdf:ID="SelfIntersectionShapeInterrogationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape interrogation >> Self-intersection</hasName>
+  </ShapeInterrogationFunctionality>
+  <ManifoldVolumeMesh rdf:ID="OtherManifoldVolumeMesh">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cells are not required to be tetrahedra</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Manifold volume mesh >> Other</hasName>
+  </ManifoldVolumeMesh>
+  <EngineeringNumericalSimulationFunctionality rdf:ID="ThermalAnalysisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engineering numerical simulation >> Thermal analysis</hasName>
+  </EngineeringNumericalSimulationFunctionality>
+  <AcquisitionFunctionality rdf:ID="AcquisitionMeasurementAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Acquisition >> Measurement</hasName>
+  </AcquisitionFunctionality>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <RasterData3D rdf:about="#MagneticResonanceImage"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <NonManifoldMesh rdf:ID="QuadrangularNonManifoldSurfaceMesh">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Mesh >> Non manifold mesh >> Quadrangular non manifold surface</hasName>
+  </NonManifoldMesh>
+  <TransformFunctionality rdf:ID="CombineTransformsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Combine transforms</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under combination of transformations</rdfs:comment>
+  </TransformFunctionality>
+  <ModelingFunctionality rdf:ID="FreeFormDeformationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Free-form deformation</hasName>
+  </ModelingFunctionality>
+  <ManifoldSurfaceBRep rdf:ID="ManifoldAnalyticalSurfaceBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold surface BRep >> Manifold analytical surface BRep</hasName>
+  </ManifoldSurfaceBRep>
+  <ModelingFunctionality rdf:ID="OtherModelingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Other modeling algorithm</hasName>
+  </ModelingFunctionality>
+  <NearestNeighborFunctionality rdf:ID="OtherNearestNeighborAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Nearest neighbor >> Other nearest neighbor algorithm</hasName>
+  </NearestNeighborFunctionality>
+  <ManifoldVolumeBRep rdf:ID="ManifoldPolygonalVolumeBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold volume BRep >> Manifold polygonal volume BRep</hasName>
+  </ManifoldVolumeBRep>
+  <ParametricSurface rdf:ID="BezierParametricSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric surface >> Bezier parametric surface</hasName>
+  </ParametricSurface>
+  <ShapeMatchingFunctionality rdf:ID="DirectedAttributeGraphBasedMatchingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape matching >> Matching based on directed attribute graph</hasName>
+  </ShapeMatchingFunctionality>
+  <AuthenticationFunctionality rdf:ID="WatermarkingAuthenticationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coding >> Authentication >> Watermarking</hasName>
+  </AuthenticationFunctionality>
+  <RasterData2D rdf:ID="RGBRasterData2D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 2D >> 2D RGB raster data</hasName>
+  </RasterData2D>
+  <ClusteringFunctionality rdf:ID="SegmentationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Clustering >> Segmentation</hasName>
+  </ClusteringFunctionality>
+  <OptimizationFunctionality rdf:ID="OtherOptimizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Optimization >> Other optimization algorithm</hasName>
+  </OptimizationFunctionality>
+  <CompressionFunctionality rdf:ID="OtherCompressionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coding >> Compression >> Other compression</hasName>
+  </CompressionFunctionality>
+  <RasterData rdf:ID="OtherRasterData">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> Other raster data</hasName>
+  </RasterData>
+  <ParametricSurface rdf:ID="OtherParametricSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric surface >> Other</hasName>
+  </ParametricSurface>
+  <PointSet rdf:ID="PointSetWithOrientedNormals">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Point set >> Point set with oriented normals</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >each point (or a subset of them) is given with a normal vector to the shape at this point</rdfs:comment>
+  </PointSet>
+  <RasterData2D rdf:ID="OtherRasterData2D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 2D >> Other 2D raster data</hasName>
+  </RasterData2D>
+  <Functionality rdf:ID="ProjectionAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the projection of the input objects</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Projection</hasName>
+  </Functionality>
+  <MeshingFunctionality rdf:ID="SurfaceMeshingAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conversion between two representations of the same shape. The transformation has to be canonical without loss or addition of information.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Meshing >> Surface meshing</hasName>
+  </MeshingFunctionality>
+  <NonPhotoRealisticFunctionality rdf:ID="OtherNonPhotoRealisticAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Non photo-realistic rendering >> Other</hasName>
+  </NonPhotoRealisticFunctionality>
+  <TransformFunctionality rdf:ID="RigidMotionTransformAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under translation or rotation or combination of</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Rigid motion</hasName>
+  </TransformFunctionality>
+  <VisibilityFunctionality rdf:ID="ShortestPathVisibilityAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the shortest Euclidean path between two given points in a given obstacle environment</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visibility >> Shortest path</hasName>
+  </VisibilityFunctionality>
+  <DistanceFunctionality rdf:ID="FrechetDistanceComputeAlgorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computes the Frechet distance between two objects.</rdfs:comment>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distance >> Frechet distance >> Compute Frechet distance</hasName>
+  </DistanceFunctionality>
+  <MeshRepairingFunctionality rdf:ID="ManifoldMeshRepairingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Remeshing >> Mesh repairing >> Manifold mesh repairing</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Converts a polygon soup into a 2-manifold mesh. A 2-manifold mesh is a mesh where each edge shares at least one and at most two faces, and the neighborhood of a vertex is a single edge-connected component.</rdfs:comment>
+  </MeshRepairingFunctionality>
+  <ShapeMatchingFunctionality rdf:ID="DescriptorsBasedShapeMatchingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape matching >> Matching based on shape descriptors</hasName>
+  </ShapeMatchingFunctionality>
+  <ModelingFunctionality rdf:ID="TrimmingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeling >> Trimming</hasName>
+  </ModelingFunctionality>
+  <ParametricCurve rdf:ID="PolynomialParametricCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric curve >> Polynomial parametric curve</hasName>
+  </ParametricCurve>
+  <ImplicitCurve rdf:ID="BezierImplicitCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit curve >> Bezier implicit curve</hasName>
+  </ImplicitCurve>
+  <ManifoldSurfaceBRep rdf:ID="ManifoldParametricSurfaceBRep">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BRep >> Manifold surface BRep >> Manifold parametric surface BRep</hasName>
+  </ManifoldSurfaceBRep>
+  <OptimizationFunctionality rdf:ID="RectangularPCenterOptimizationAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Optimization >> Rectangular p center</hasName>
+  </OptimizationFunctionality>
+  <MultiResolutionModel rdf:ID="OtherMultiResolutionModel">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Multi-resolution model >> Other multi-resolution model</hasName>
+  </MultiResolutionModel>
+  <ImplicitCurve rdf:ID="BSplineImplicitCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit curve >> B-spline implicit curve</hasName>
+  </ImplicitCurve>
+  <ImplicitSurface rdf:ID="BezierImplicitSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Implicit surface >> Bezier implicit surface</hasName>
+  </ImplicitSurface>
+  <LevelOfDetailsFunctionality rdf:ID="MultiresolutionShapeAnalysisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of details >> Multiresolution shape analysis</hasName>
+  </LevelOfDetailsFunctionality>
+  <ShapeMatchingFunctionality rdf:ID="OtherShapeMatchingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Shape matching >> Other shape matching</hasName>
+  </ShapeMatchingFunctionality>
+  <RasterData4D rdf:ID="OtherRasterData4D">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> Other 4D raster data</hasName>
+  </RasterData4D>
+  <RealisticRenderingFunctionality rdf:ID="OtherRealisticRenderingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visualization >> Realistic rendering >> Other realistic rendering</hasName>
+  </RealisticRenderingFunctionality>
+  <ClusteringFunctionality rdf:ID="MultiscaleLabelingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Clustering >> Mutiscale labeling</hasName>
+  </ClusteringFunctionality>
+  <ImplicitRepresentation rdf:ID="OtherImplicitRepresentation">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Implicit >> Other implicit representation</hasName>
+  </ImplicitRepresentation>
+  <ParametricSurface rdf:ID="NURBSParametricSurface">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric surface >> NURB parametric surface</hasName>
+  </ParametricSurface>
+  <SubdivisionFunctionality rdf:ID="ArrangementAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Subdivision >> Arrangement</hasName>
+  </SubdivisionFunctionality>
+  <AcquisitionFunctionality rdf:ID="OtherAcquisitionAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Acquisition >> Other acquisition</hasName>
+  </AcquisitionFunctionality>
+  <ParametricCurve rdf:ID="RationalParametricCurve">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometrical representation >> Parametric >> Parametric curve >> Rational parametric curve</hasName>
+  </ParametricCurve>
+  <StatisticalAnalysisFunctionality rdf:ID="PrincipalComponentAnalysisAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Statistical analysis >> Principal component analysis</hasName>
+  </StatisticalAnalysisFunctionality>
+  <NearestNeighborFunctionality rdf:ID="K-NearestNeighborsAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Query >> Nearest neighbor >> K-nearest neighbors</hasName>
+  </NearestNeighborFunctionality>
+  <RasterData4D rdf:ID="DynamicMagneticResonanceImage">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Raster Data >> 4D >> Dynamic magnetic resonance Image</hasName>
+  </RasterData4D>
+  <TransformFunctionality rdf:ID="InversionTransformAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transforms >> Inversion</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under inversions</rdfs:comment>
+  </TransformFunctionality>
+  <StructuringFunctionality rdf:ID="GraphPartitioningAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structuring >> Graph partitioning</hasName>
+  </StructuringFunctionality>
+  <AcquisitionFunctionality rdf:ID="AcquisitionProbingAlgorithm">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Acquisition >> Probing</hasName>
+  </AcquisitionFunctionality>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

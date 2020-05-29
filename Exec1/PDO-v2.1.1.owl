@@ -1,0 +1,2269 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.aimatshape.net/ontologies/PDOntology.owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:ico="http://www.aimatshape.net/ontologies/infoCommonOntology.owl#"
+    xmlns:cto="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#"
+    xmlns:sco="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#"
+  xml:base="http://www.aimatshape.net/ontologies/PDOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="file:/C:/infoOntology_v1.0.owl"/>
+    <owl:imports rdf:resource="file:/C:/toolOntology_v1.12.1.owl"/>
+    <owl:imports rdf:resource="file:/C:/shapeOntology_v2.3.1.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="BRepConditionType">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GeometricConditionType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Conduction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Thermic"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Temperature"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="DynamicResult">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StructuralMechanicsResult"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PointCloudWithNormalDirections">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PointCloudWithLocalDisc"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PointCloudWithHigherOrderLocalModels"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PointCloudWithOrientedNormals"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PointCloudWithLocalEllipses"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PointCloud"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StrainResult">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StaticResult"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DisplacementResult">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StaticResult"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ShapeSimplification">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Layouting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PartDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Meshing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ShapeStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DefinitionOfBoundaryConditions"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConceptDesignEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ProductEvaluation"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Task"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ConditionType"/>
+  <owl:Class rdf:about="#Thermic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BoundaryConditionType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FiniteElementMesh">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue>
+          <MeshConditionType rdf:ID="Conformity">
+            <IsNecessaryTaskConditionOf>
+              <ShapeRole rdf:ID="CADModelforTesselation">
+                <hasNecessaryShapeCondition>
+                  <BRepConditionType rdf:ID="G0Continuity">
+                    <IsNecessaryShapeConditionOf>
+                      <SimplificationModelForAnalysis rdf:ID="CADforVolumePreservingSimplification">
+                        <hasNecessaryTaskCondition>
+                          <GeometricConditionType rdf:ID="MaxVolumeVariation">
+                            <IsNecessaryTaskConditionOf rdf:resource="#CADforVolumePreservingSimplification"/>
+                          </GeometricConditionType>
+                        </hasNecessaryTaskCondition>
+                        <hasNecessaryShapeCondition>
+                          <GeometricConditionType rdf:ID="NoSelf-Intersection">
+                            <IsNecessaryShapeConditionOf rdf:resource="#CADforVolumePreservingSimplification"/>
+                            <IsNecessaryShapeConditionOf>
+                              <ShapeRole rdf:ID="Digital3DSketch">
+                                <supportsTaskInInput>
+                                  <ShapeStyling rdf:ID="T2_3_Shape_Styling">
+                                    <hasPredecessor>
+                                      <ConceptDevelopment rdf:ID="T2_1_Concept_Development">
+                                        <hasSuperTask>
+                                          <ProductStyling rdf:ID="T2_Product_Styling">
+                                            <hasSubtask>
+                                              <PhysicalPrototyping rdf:ID="T2_2_Physical_Prototyping">
+                                                <hasSuccessor>
+                                                  <ShapeAcquisitionAndReconstruction rdf:ID="Shape_Acquisition_and_Reconstruction">
+                                                    <taskDescription
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >See Shape Acquistion and Reconstruction Ontology.</taskDescription>
+                                                    <hasPredecessor rdf:resource="#T2_2_Physical_Prototyping"/>
+                                                    <hasSuperTask>
+                                                      <Layouting rdf:ID="T3_1_Layouting">
+                                                        <taskDescription
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >Often called packing layout definition.</taskDescription>
+                                                        <hasSuperTask>
+                                                          <ProductDesign rdf:ID="T3_Product_Design">
+                                                            <hasSuccessor>
+                                                              <ProductEvaluation rdf:ID="T4_Product_Evaluation">
+    <hasPredecessor rdf:resource="#T3_Product_Design"/>
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Process of executing tests with the prototype of a product or a component.      Most of the subtasks of Product_Evaluation are not relevant for the      AIM@SHAPE Product Design Ontology. However, surface acquisition      (measurement) of surface for product evaluation provides a link to the      Acquisition and Reconstruction Ontologies, which is why it is included.</taskDescription>
+    <hasSubtask rdf:resource="#Shape_Acquisition_and_Reconstruction"/>
+                                                              </ProductEvaluation>
+                                                            </hasSuccessor>
+                                                            <hasPredecessor>
+                                                              <GeometricDesignEvaluation rdf:ID="CheckForSelfIntersection">
+    <hasSuccessor>
+      <ShapeSimplification rdf:ID="T3_4_1_Shape_Simplification">
+        <hasSuccessor>
+          <Meshing rdf:ID="T3_4_2_Meshing">
+            <hasSuperTask>
+              <CalculationAndAnalaysis rdf:ID="T3_4_Calculation_and_Analaysis">
+                <hasSuperTask rdf:resource="#T3_Product_Design"/>
+                <hasSubtask>
+                  <SimulationPostProcessing rdf:ID="T3_4_5_Simulation_Post_Processing">
+                    <hasPredecessor>
+                      <GeometricDesignEvaluation rdf:ID="CheckForTopologicalDistance">
+                        <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >(12) Topological Distances. Check that the geometric description of a face (a surface) and an edge (the curve representing the edge) is within a predefined tolerance.</taskDescription>
+                        <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                        <hasSuccessor>
+                          <Solving rdf:ID="T3_4_4_Solving">
+                            <hasPredecessor>
+                              <GeometricDesignEvaluation rdf:ID="CheckForConsistentOrientation">
+                                <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                                <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                                <taskDescription rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >(10) Consistent Orientation. Test are performed for edges lops and for the orientation of the surface normal. The test do not depend on a tolerance.</taskDescription>
+                              </GeometricDesignEvaluation>
+                            </hasPredecessor>
+                            <hasPredecessor>
+                              <GeometricDesignEvaluation rdf:ID="CheckForTopologicalConsistency">
+                                <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                                <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                                <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                <taskDescription rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >(11) Topological Consistency. Check if the CAD model is manifold or not.</taskDescription>
+                              </GeometricDesignEvaluation>
+                            </hasPredecessor>
+                            <hasPredecessor rdf:resource="#CheckForTopologicalDistance"/>
+                            <hasPredecessor>
+                              <DefinitionOfBoundaryConditions rdf:ID="T3_4_3_Definition_of_Boundary_Conditions">
+                                <hasPredecessor rdf:resource="#T3_4_2_Meshing"/>
+                                <hasSuperTask rdf:resource="#T3_4_Calculation_and_Analaysis"/>
+                                <taskDescription rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >When performing a FEA/CFD analysis, boundary conditions on the finite elements need to be definined to define the target of a simulation (force distribution, temperature, flow, ...).</taskDescription>
+                                <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                              </DefinitionOfBoundaryConditions>
+                            </hasPredecessor>
+                            <hasPredecessor>
+                              <GeometricDesignEvaluation rdf:ID="CheckForMiniElement">
+                                <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                                <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                                <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                <taskDescription rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >(2) Mini Elements. Test for small curves, small surface and narrow surfaces and small distances between edge lops in a surface.</taskDescription>
+                              </GeometricDesignEvaluation>
+                            </hasPredecessor>
+                            <hasPredecessor>
+                              <GeometricDesignEvaluation rdf:ID="CheckForIdentityBetweenObject">
+                                <hasSuccessor rdf:resource="#T3_Product_Design"/>
+                                <taskDescription rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >(1) Identity Between Objects. Check for duplication of elements.</taskDescription>
+                                <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                                <hasSuccessor>
+                                  <PartDesign rdf:ID="T3_3_Part_Design">
+                                    <hasSuccessor rdf:resource="#T3_4_Calculation_and_Analaysis"/>
+                                    <hasSuperTask rdf:resource="#T3_Product_Design"/>
+                                    <taskDescription rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Process of designing the details of the single parts of a product. Detailed design - CAD - is not in the focus of the Product Design Ontology. However, CAD models, being modelled within this task, are major input for several shape processing tools relevant to AIM@SHAPE.</taskDescription>
+                                    <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+                                    <hasPredecessor>
+                                      <GeometricDesignEvaluation rdf:ID="CheckForContinuityBetweenObject">
+                                        <taskDescription rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >(3) Continuity Between Objects. Check for G0, G1 or G2 continuity within defended tolerances.</taskDescription>
+                                        <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                        <hasSuccessor rdf:resource="#T3_1_Layouting"/>
+                                        <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                                        <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                                        <hasSuccessor rdf:resource="#T3_4_1_Shape_Simplification"/>
+                                        <hasSuccessor rdf:resource="#T3_Product_Design"/>
+                                        <hasSuccessor rdf:resource="#T2_Product_Styling"/>
+                                        <hasSuccessor rdf:resource="#T3_3_Part_Design"/>
+                                      </GeometricDesignEvaluation>
+                                    </hasPredecessor>
+                                    <hasPredecessor>
+                                      <GeometricDesignEvaluation rdf:ID="CheckForKnots">
+                                        <hasSuccessor rdf:resource="#T3_Product_Design"/>
+                                        <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                                        <hasSuccessor rdf:resource="#T3_3_Part_Design"/>
+                                        <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                        <hasSuccessor rdf:resource="#T2_Product_Styling"/>
+                                        <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                                        <hasSuccessor rdf:resource="#T3_4_1_Shape_Simplification"/>
+                                        <hasSuccessor rdf:resource="#T3_1_Layouting"/>
+                                        <taskDescription rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >(6) Knots. This test relates to the internal distance of knots describing the internal continuity of the NURBS curve or surface.</taskDescription>
+                                      </GeometricDesignEvaluation>
+                                    </hasPredecessor>
+                                    <hasPredecessor>
+                                      <ConceptDesignEvaluation rdf:ID="T3_2_Concept_Design_Evaluation">
+                                        <hasSuperTask rdf:resource="#T3_Product_Design"/>
+                                        <hasPredecessor rdf:resource="#T3_1_Layouting"/>
+                                        <hasSuccessor rdf:resource="#T3_3_Part_Design"/>
+                                        <taskDescription rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Task verifying the feasibility of the design of the major parts of a product.</taskDescription>
+                                        <rdfs:comment rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        ></rdfs:comment>
+                                      </ConceptDesignEvaluation>
+                                    </hasPredecessor>
+                                    <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+                                  </PartDesign>
+                                </hasSuccessor>
+                                <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                <hasSuccessor rdf:resource="#T3_4_4_Solving"/>
+                                <hasSuccessor rdf:resource="#T2_Product_Styling"/>
+                                <hasSuccessor rdf:resource="#T3_4_1_Shape_Simplification"/>
+                                <hasSuccessor rdf:resource="#T3_1_Layouting"/>
+                              </GeometricDesignEvaluation>
+                            </hasPredecessor>
+                            <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Task performing the actual simulation taking a mesh and the boundary conditions on nodes as input.</taskDescription>
+                            <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                            <hasSuperTask rdf:resource="#T3_4_Calculation_and_Analaysis"/>
+                            <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+                            <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+                            <hasPredecessor rdf:resource="#CheckForKnots"/>
+                          </Solving>
+                        </hasSuccessor>
+                        <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+                      </GeometricDesignEvaluation>
+                    </hasPredecessor>
+                    <hasPredecessor rdf:resource="#CheckForKnots"/>
+                    <hasPredecessor rdf:resource="#T3_4_4_Solving"/>
+                    <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+                    <hasPredecessor rdf:resource="#CheckForTopologicalConsistency"/>
+                    <hasPredecessor rdf:resource="#CheckForMiniElement"/>
+                    <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+                    <hasSuperTask rdf:resource="#T3_4_Calculation_and_Analaysis"/>
+                    <hasPredecessor rdf:resource="#CheckForConsistentOrientation"/>
+                    <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+                    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Post processing of simulation results to support its interpretation. Input are the original shape model, its mesh representation and the simulation results, typically being scalar or vector values on finete element nodes.</taskDescription>
+                  </SimulationPostProcessing>
+                </hasSubtask>
+                <hasSubtask rdf:resource="#T3_4_4_Solving"/>
+                <hasSubtask rdf:resource="#T3_4_1_Shape_Simplification"/>
+                <hasSubtask rdf:resource="#T3_4_3_Definition_of_Boundary_Conditions"/>
+                <hasSubtask rdf:resource="#T3_4_2_Meshing"/>
+                <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Task to determine and analyse the properties and expected behaviour of a product and its components/parts using various methods, such as Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), vibrational behaviour analysis, strength and stress analysis, etc. in order to optimize material and dimensions.</taskDescription>
+                <hasPredecessor rdf:resource="#T3_3_Part_Design"/>
+              </CalculationAndAnalaysis>
+            </hasSuperTask>
+            <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Calculation of a surface or volume mesh (typically finite element mesh).</taskDescription>
+            <hasPredecessor rdf:resource="#T3_4_1_Shape_Simplification"/>
+            <hasPredecessor rdf:resource="#CheckForConsistentOrientation"/>
+            <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+            <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+            <hasPredecessor rdf:resource="#CheckForTopologicalConsistency"/>
+            <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+            <hasPredecessor rdf:resource="#CheckForMiniElement"/>
+            <hasSuccessor rdf:resource="#T3_4_3_Definition_of_Boundary_Conditions"/>
+            <hasPredecessor rdf:resource="#CheckForKnots"/>
+            <hasPredecessor rdf:resource="#CheckForTopologicalDistance"/>
+          </Meshing>
+        </hasSuccessor>
+        <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+        <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+        <hasPredecessor rdf:resource="#CheckForKnots"/>
+        <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+        <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Task simplifying Shape Models (typically CAD models) as preparation for a simulation. Simplification is performed to reduce complexity and improve performance of simulation tasks.</taskDescription>
+        <hasSuperTask rdf:resource="#T3_4_Calculation_and_Analaysis"/>
+      </ShapeSimplification>
+    </hasSuccessor>
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(7) Self-Intersections and Singularities. A self-intersecting CAD-model, curve or surface does not represent a valid 3D object. The self-intersection test should be tolerance dependent.</taskDescription>
+    <hasSuccessor rdf:resource="#T2_Product_Styling"/>
+    <hasSuccessor rdf:resource="#T3_4_2_Meshing"/>
+    <hasSuccessor rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+    <hasSuccessor rdf:resource="#T3_1_Layouting"/>
+    <hasSuccessor rdf:resource="#T3_3_Part_Design"/>
+    <hasSuccessor rdf:resource="#T3_Product_Design"/>
+    <hasSuccessor rdf:resource="#T3_4_4_Solving"/>            </GeometricDesignEvaluation>
+                                                            </hasPredecessor>
+                                                            <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+                                                            <hasSubtask rdf:resource="#T3_4_Calculation_and_Analaysis"/>
+                                                            <hasSubtask rdf:resource="#T3_1_Layouting"/>
+                                                            <hasPredecessor rdf:resource="#CheckForKnots"/>
+                                                            <hasSubtask rdf:resource="#T3_3_Part_Design"/>
+                                                            <taskDescription
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >Task in which the functionality, geometry and technological properties of a product are defined in detail.</taskDescription>
+                                                            <hasSubtask rdf:resource="#T3_2_Concept_Design_Evaluation"/>
+                                                            <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+                                                            <hasPredecessor rdf:resource="#T2_Product_Styling"/>
+                                                          </ProductDesign>
+                                                        </hasSuperTask>
+                                                        <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+                                                        <hasPredecessor rdf:resource="#CheckForKnots"/>
+                                                        <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+                                                        <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+                                                        <hasSuccessor rdf:resource="#T3_2_Concept_Design_Evaluation"/>
+                                                        <hasSubtask rdf:resource="#Shape_Acquisition_and_Reconstruction"/>
+                                                      </Layouting>
+                                                    </hasSuperTask>
+                                                    <hasSuperTask rdf:resource="#T4_Product_Evaluation"/>
+                                                    <hasSuperTask rdf:resource="#T2_3_Shape_Styling"/>
+                                                  </ShapeAcquisitionAndReconstruction>
+                                                </hasSuccessor>
+                                                <hasSuperTask rdf:resource="#T2_Product_Styling"/>
+                                                <taskDescription
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Process of building a physical prototype based on 3D shape models.      Physical prototyping is not target of the AIM@SHAPE Product Design      Ontology. However, as physical prototypes are input to subsequent quality      insurance activities involving acquistion and surface reconstruction      (measurement) methods, it is included for completeness.</taskDescription>
+                                                <hasPredecessor rdf:resource="#T2_1_Concept_Development"/>
+                                              </PhysicalPrototyping>
+                                            </hasSubtask>
+                                            <hasPredecessor>
+                                              <ProductDefinition rdf:ID="T1_Product_Definition">
+                                                <taskDescription
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Task in which the essential properties of a product in the form of lists      of essential characteristics such as function, size, material, weight,      etc. are specified. Even if this task is currently not part of the      AIM@SHAPE Product Design Ontology, it is however included for completeness.</taskDescription>
+                                                <hasSuccessor rdf:resource="#T2_Product_Styling"/>
+                                              </ProductDefinition>
+                                            </hasPredecessor>
+                                            <hasPredecessor rdf:resource="#CheckForSelfIntersection"/>
+                                            <hasPredecessor rdf:resource="#CheckForIdentityBetweenObject"/>
+                                            <hasSuccessor rdf:resource="#T3_Product_Design"/>
+                                            <hasPredecessor rdf:resource="#CheckForContinuityBetweenObject"/>
+                                            <hasSubtask rdf:resource="#T2_1_Concept_Development"/>
+                                            <hasPredecessor rdf:resource="#CheckForKnots"/>
+                                            <hasSubtask rdf:resource="#T2_3_Shape_Styling"/>
+                                            <taskDescription rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Process of specifying the shape of a product in consideration of aesthetical and visual aspects.</taskDescription>
+                                          </ProductStyling>
+                                        </hasSuperTask>
+                                        <taskDescription rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Elaboration of the idea of a product developed with respect to a list of specifications.</taskDescription>
+                                        <hasSuccessor rdf:resource="#T2_2_Physical_Prototyping"/>
+                                        <hasSuccessor rdf:resource="#T2_3_Shape_Styling"/>
+                                      </ConceptDevelopment>
+                                    </hasPredecessor>
+                                    <hasSuperTask rdf:resource="#T2_Product_Styling"/>
+                                    <hasSubtask rdf:resource="#Shape_Acquisition_and_Reconstruction"/>
+                                    <taskDescription rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Process of generating the 3D shape description of a product.</taskDescription>
+                                  </ShapeStyling>
+                                </supportsTaskInInput>
+                                <hasNecessaryShapeCondition rdf:resource="#NoSelf-Intersection"/>
+                                <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ManifoldParametricSurfaceBRep"/>
+                                <hasPreferableShapeCondition>
+                                  <BRepConditionType rdf:ID="G2Continuity">
+                                    <IsPreferableShapeConditionOf>
+                                      <ShapeRole rdf:ID="Digital2DSketch">
+                                        <hasNecessaryShapeCondition rdf:resource="#NoSelf-Intersection"/>
+                                        <supportsTaskInInput rdf:resource="#T2_1_Concept_Development"/>
+                                        <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#NURBSParametricCurve"/>
+                                        <hasPreferableShapeCondition rdf:resource="#G2Continuity"/>
+                                        <hasPreferableShapeCondition>
+                                          <BRepConditionType rdf:ID="C2InternalContinuity">
+                                            <IsPreferableShapeConditionOf rdf:resource="#Digital2DSketch"/>
+                                            <IsPreferableShapeConditionOf>
+                                              <ShapeRole rdf:ID="CADModelForFEMCase1">
+                                                <hasPreferableShapeCondition>
+                                                  <BRepConditionType rdf:ID="G1Continuity">
+                                                    <IsPreferableShapeConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                  </BRepConditionType>
+                                                </hasPreferableShapeCondition>
+                                                <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ManifoldParametricVolumeBRep"/>
+                                                <hasPreferableTaskCondition>
+                                                  <MeshConditionType rdf:ID="EdgeSize">
+                                                    <IsPreferableTaskConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                    <IsNecessaryTaskConditionOf rdf:resource="#CADModelforTesselation"/>
+                                                    <IsNecessaryTaskConditionOf>
+                                                      <SimplificationModelRole rdf:ID="MeshForVisualisationSimplification">
+                                                        <hasNecessaryTaskCondition rdf:resource="#EdgeSize"/>
+                                                        <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#CompositeManifoldSurfaceMesh"/>
+                                                        <supportsTaskInInput rdf:resource="#T3_4_1_Shape_Simplification"/>
+                                                        <hasNecessaryShapeCondition rdf:resource="#Conformity"/>
+                                                      </SimplificationModelRole>
+                                                    </IsNecessaryTaskConditionOf>
+                                                    <IsNecessaryTaskConditionOf>
+                                                      <SimplificationModelForAnalysis rdf:ID="MeshForEdgeSizeSimplification">
+                                                        <hasNecessaryTaskCondition rdf:resource="#EdgeSize"/>
+                                                        <hasNecessaryShapeCondition rdf:resource="#Conformity"/>
+                                                        <supportsTaskInInput rdf:resource="#T3_4_1_Shape_Simplification"/>
+                                                        <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#OtherManifoldVolumeMesh"/>
+                                                      </SimplificationModelForAnalysis>
+                                                    </IsNecessaryTaskConditionOf>
+                                                  </MeshConditionType>
+                                                </hasPreferableTaskCondition>
+                                                <supportsTaskInInput rdf:resource="#T3_4_2_Meshing"/>
+                                                <hasNecessaryShapeCondition rdf:resource="#G0Continuity"/>
+                                                <hasNecessaryShapeCondition>
+                                                  <BRepConditionType rdf:ID="MiniElements">
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelforTesselation"/>
+                                                  </BRepConditionType>
+                                                </hasNecessaryShapeCondition>
+                                                <hasPreferableShapeCondition rdf:resource="#C2InternalContinuity"/>
+                                                <hasNecessaryShapeCondition>
+                                                  <BRepConditionType rdf:ID="NoSingularity">
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelforTesselation"/>
+                                                  </BRepConditionType>
+                                                </hasNecessaryShapeCondition>
+                                                <hasNecessaryTaskCondition>
+                                                  <Symmetry rdf:ID="axisSymmetry">
+                                                    <IsNecessaryTaskConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                    <IsNecessaryTaskConditionOf>
+                                                      <PostSimulationMesh rdf:ID="ResultFEMManifoldForCase1WithAPostCriterion1">
+                                                        <hasNecessaryTaskCondition>
+                                                          <ExternalForce rdf:ID="volumicForce">
+                                                            <rdfs:comment
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >only if the problem is 3D</rdfs:comment>
+                                                            <IsNecessaryTaskConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                            <IsNecessaryTaskConditionOf>
+                                                              <SimplificationModelForAnalysis rdf:ID="SimplificationMeshwithStaticBC">
+    <hasNecessaryShapeCondition rdf:resource="#Conformity"/>
+    <supportsTaskInInput rdf:resource="#T3_4_1_Shape_Simplification"/>
+    <hasNecessaryTaskCondition>
+      <Displacement rdf:ID="Translation">
+        <IsNecessaryTaskConditionOf>
+          <PostSimulationMesh rdf:ID="ResultFEMManifoldForCase1">
+            <hasNecessaryTaskCondition rdf:resource="#Translation"/>
+            <hasSimulationResultType>
+              <DisplacementResult rdf:ID="TotalDisplacementResultType"/>
+            </hasSimulationResultType>
+            <hasSimulationResultType>
+              <StrainResult rdf:ID="DeformationStrainResultType"/>
+            </hasSimulationResultType>
+            <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#OtherManifoldVolumeMesh"/>
+            <hasSimulationResultType>
+              <StressResult rdf:ID="VonMisesCriterionResult"/>
+            </hasSimulationResultType>
+            <hasNecessaryTaskCondition>
+              <ExternalForce rdf:ID="surfacicForce">
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Only if the problem is at least 2D</rdfs:comment>
+                <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMManifoldForCase1"/>
+                <IsNecessaryTaskConditionOf>
+                  <PreSimulationMesh rdf:ID="FEMManifoldForCase1">
+                    <hasNecessaryShapeCondition>
+                      <MeshConditionType rdf:ID="ElementRatio">
+                        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >The ratio is evaluated on the element of a mesh (e.g., triangle, tetrahedron).</rdfs:comment>
+                        <IsNecessaryShapeConditionOf>
+                          <PreSimulationMesh rdf:ID="FEMNonManifoldForCase2">
+                            <supportsTaskInInput rdf:resource="#T3_4_4_Solving"/>
+                            <hasNecessaryTaskCondition>
+                              <ExternalForce rdf:ID="ponctualForce">
+                                <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMManifoldForCase1"/>
+                                <IsNecessaryTaskConditionOf rdf:resource="#FEMManifoldForCase1"/>
+                                <IsNecessaryTaskConditionOf rdf:resource="#FEMNonManifoldForCase2"/>
+                                <IsNecessaryTaskConditionOf>
+                                  <PostSimulationMesh rdf:ID="ResultFEMNonManifoldForCase2">
+                                    <supportsTaskInInput rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                    <hasSimulationResultType rdf:resource="#DeformationStrainResultType"/>
+                                    <hasNecessaryTaskCondition>
+                                      <Symmetry rdf:ID="planeSymmetry">
+                                        <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMNonManifoldForCase2"/>
+                                        <IsNecessaryTaskConditionOf rdf:resource="#FEMNonManifoldForCase2"/>
+                                      </Symmetry>
+                                    </hasNecessaryTaskCondition>
+                                    <hasNecessaryTaskCondition rdf:resource="#ponctualForce"/>
+                                    <hasNecessaryTaskCondition rdf:resource="#Translation"/>
+                                    <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#CompositeNonManifoldSurfaceMesh"/>
+                                  </PostSimulationMesh>
+                                </IsNecessaryTaskConditionOf>
+                              </ExternalForce>
+                            </hasNecessaryTaskCondition>
+                            <hasNecessaryTaskCondition rdf:resource="#planeSymmetry"/>
+                            <hasNecessaryTaskCondition rdf:resource="#Translation"/>
+                            <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#CompositeNonManifoldSurfaceMesh"/>
+                            <hasNecessaryShapeCondition rdf:resource="#ElementRatio"/>
+                          </PreSimulationMesh>
+                        </IsNecessaryShapeConditionOf>
+                        <IsNecessaryShapeConditionOf rdf:resource="#FEMManifoldForCase1"/>
+                        <IsNecessaryTaskConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                      </MeshConditionType>
+                    </hasNecessaryShapeCondition>
+                    <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#OtherManifoldVolumeMesh"/>
+                    <supportsTaskInInput rdf:resource="#T3_4_4_Solving"/>
+                    <hasNecessaryTaskCondition rdf:resource="#surfacicForce"/>
+                    <hasNecessaryTaskCondition rdf:resource="#ponctualForce"/>
+                    <hasNecessaryTaskCondition rdf:resource="#Translation"/>
+                  </PreSimulationMesh>
+                </IsNecessaryTaskConditionOf>
+              </ExternalForce>
+            </hasNecessaryTaskCondition>
+            <hasSimulationResultType>
+              <StressResult rdf:ID="TrescaCriterionResult"/>
+            </hasSimulationResultType>
+            <hasNecessaryTaskCondition rdf:resource="#ponctualForce"/>
+            <supportsTaskInInput rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+          </PostSimulationMesh>
+        </IsNecessaryTaskConditionOf>
+        <IsNecessaryTaskConditionOf rdf:resource="#FEMManifoldForCase1"/>
+        <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMManifoldForCase1WithAPostCriterion1"/>
+        <IsNecessaryTaskConditionOf rdf:resource="#CADModelForFEMCase1"/>
+        <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMNonManifoldForCase2"/>
+        <IsNecessaryTaskConditionOf rdf:resource="#SimplificationMeshwithStaticBC"/>
+        <IsNecessaryTaskConditionOf rdf:resource="#FEMNonManifoldForCase2"/>
+      </Displacement>
+    </hasNecessaryTaskCondition>
+    <hasNecessaryTaskCondition rdf:resource="#volumicForce"/>
+    <hasNecessaryTaskCondition rdf:resource="#axisSymmetry"/>
+    <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#TetrahedralManifoldVolumeMesh"/>
+                                                              </SimplificationModelForAnalysis>
+                                                            </IsNecessaryTaskConditionOf>
+                                                            <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMManifoldForCase1WithAPostCriterion1"/>
+                                                          </ExternalForce>
+                                                        </hasNecessaryTaskCondition>
+                                                        <hasNecessaryTaskCondition rdf:resource="#Translation"/>
+                                                        <hasNecessaryTaskCondition rdf:resource="#axisSymmetry"/>
+                                                        <hasNecessaryTaskCondition>
+                                                          <ConditionType rdf:ID="APosterioriCriterionForLinearStaticAnalysis">
+                                                            <rdfs:comment
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >A posteriori mechanical criterion used to evaluate shape simplifications, only in case of linear static FEA, based on Marin's work</rdfs:comment>
+                                                            <IsNecessaryTaskConditionOf rdf:resource="#ResultFEMManifoldForCase1WithAPostCriterion1"/>
+                                                          </ConditionType>
+                                                        </hasNecessaryTaskCondition>
+                                                        <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#OtherManifoldVolumeMesh"/>
+                                                        <supportsTaskInInput rdf:resource="#T3_4_5_Simulation_Post_Processing"/>
+                                                      </PostSimulationMesh>
+                                                    </IsNecessaryTaskConditionOf>
+                                                    <IsNecessaryTaskConditionOf rdf:resource="#SimplificationMeshwithStaticBC"/>
+                                                  </Symmetry>
+                                                </hasNecessaryTaskCondition>
+                                                <hasNecessaryShapeCondition rdf:resource="#NoSelf-Intersection"/>
+                                                <hasNecessaryTaskCondition rdf:resource="#volumicForce"/>
+                                                <hasNecessaryTaskCondition rdf:resource="#ElementRatio"/>
+                                                <hasNecessaryShapeCondition>
+                                                  <GeometricConditionType rdf:ID="NoDuplicatedElements">
+                                                    <IsNecessaryShapeConditionOf>
+                                                      <ShapeRole rdf:ID="CADMockUp">
+                                                        <supportsTaskInInput rdf:resource="#T3_2_Concept_Design_Evaluation"/>
+                                                        <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ManifoldMixedVolumeBRep"/>
+                                                        <hasNecessaryShapeCondition rdf:resource="#NoSelf-Intersection"/>
+                                                        <hasNecessaryShapeCondition rdf:resource="#NoDuplicatedElements"/>
+                                                      </ShapeRole>
+                                                    </IsNecessaryShapeConditionOf>
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADforVolumePreservingSimplification"/>
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelforTesselation"/>
+                                                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                                                  </GeometricConditionType>
+                                                </hasNecessaryShapeCondition>
+                                                <hasNecessaryTaskCondition rdf:resource="#Translation"/>
+                                              </ShapeRole>
+                                            </IsPreferableShapeConditionOf>
+                                            <IsPreferableShapeConditionOf rdf:resource="#Digital3DSketch"/>
+                                          </BRepConditionType>
+                                        </hasPreferableShapeCondition>
+                                      </ShapeRole>
+                                    </IsPreferableShapeConditionOf>
+                                    <IsPreferableShapeConditionOf rdf:resource="#Digital3DSketch"/>
+                                  </BRepConditionType>
+                                </hasPreferableShapeCondition>
+                                <hasPreferableShapeCondition rdf:resource="#C2InternalContinuity"/>
+                              </ShapeRole>
+                            </IsNecessaryShapeConditionOf>
+                            <IsNecessaryShapeConditionOf rdf:resource="#Digital2DSketch"/>
+                            <IsNecessaryShapeConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                            <IsNecessaryShapeConditionOf rdf:resource="#CADModelforTesselation"/>
+                            <IsNecessaryShapeConditionOf rdf:resource="#CADMockUp"/>
+                          </GeometricConditionType>
+                        </hasNecessaryShapeCondition>
+                        <hasNecessaryShapeCondition rdf:resource="#G0Continuity"/>
+                        <hasNecessaryShapeCondition rdf:resource="#NoDuplicatedElements"/>
+                        <supportsTaskInInput rdf:resource="#T3_4_1_Shape_Simplification"/>
+                        <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ManifoldParametricVolumeBRep"/>
+                      </SimplificationModelForAnalysis>
+                    </IsNecessaryShapeConditionOf>
+                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelforTesselation"/>
+                    <IsNecessaryShapeConditionOf rdf:resource="#CADModelForFEMCase1"/>
+                  </BRepConditionType>
+                </hasNecessaryShapeCondition>
+                <hasNecessaryShapeCondition rdf:resource="#NoSelf-Intersection"/>
+                <hasNecessaryTaskCondition rdf:resource="#Conformity"/>
+                <hasNecessaryShapeCondition rdf:resource="#NoSingularity"/>
+                <hasNecessaryShapeCondition rdf:resource="#NoDuplicatedElements"/>
+                <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ManifoldParametricVolumeBRep"/>
+                <hasNecessaryTaskCondition rdf:resource="#EdgeSize"/>
+                <hasNecessaryShapeCondition rdf:resource="#MiniElements"/>
+                <supportsTaskInInput rdf:resource="#T3_4_2_Meshing"/>
+              </ShapeRole>
+            </IsNecessaryTaskConditionOf>
+            <IsNecessaryShapeConditionOf rdf:resource="#SimplificationMeshwithStaticBC"/>
+            <IsNecessaryShapeConditionOf>
+              <ShapeRole rdf:ID="TesselatedModelForSimplification">
+                <hasNecessaryShapeCondition rdf:resource="#Conformity"/>
+                <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#CompositeManifoldSurfaceMesh"/>
+              </ShapeRole>
+            </IsNecessaryShapeConditionOf>
+            <IsNecessaryShapeConditionOf>
+              <SimplificationModelForAnalysis rdf:ID="MeshForIdealization">
+                <supportsTaskInInput rdf:resource="#T3_4_1_Shape_Simplification"/>
+                <hasNecessaryTaskCondition>
+                  <MeshConditionType rdf:ID="MapOfSize">
+                    <IsNecessaryTaskConditionOf rdf:resource="#MeshForIdealization"/>
+                  </MeshConditionType>
+                </hasNecessaryTaskCondition>
+                <hasNecessaryShapeCondition rdf:resource="#Conformity"/>
+                <hasShapeType rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#CompositeNonManifoldSurfaceMesh"/>
+              </SimplificationModelForAnalysis>
+            </IsNecessaryShapeConditionOf>
+            <IsNecessaryShapeConditionOf rdf:resource="#MeshForVisualisationSimplification"/>
+            <IsNecessaryShapeConditionOf rdf:resource="#MeshForEdgeSizeSimplification"/>
+          </MeshConditionType>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasNecessaryShapeCondition"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasShapeType"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Mesh"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ShapeRole"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#BoundaryConditionType"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasNecessaryTaskCondition"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#DefinitionOfBoundaryConditions">
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDesignEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PartDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Layouting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductEvaluation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Electromagnetic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BoundaryConditionType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PartDesign">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDesignEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Layouting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Displacement">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Static"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ShapeRole">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This concept models the fact that a shape can play different roles within the shape life-cycle. The ShapeRole concept relates a ShapeType instance with:
+(1) geometric conditions that have to be satisfied by a shape type in a certain design phase. 
+(2) necessary conditions required to perform a certain task. 
+</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasShapeType"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StaticResult">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StructuralMechanicsResult"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#StructuralMechanicsResult">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SimulationResultType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GeometricDesignEvaluation">
+    <rdfs:subClassOf rdf:resource="#Task"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CFDResult">
+    <rdfs:subClassOf rdf:resource="#SimulationResultType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PointCloud">
+    <rdfs:subClassOf rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#PointSet"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProductEvaluation">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Layouting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDesignEvaluation"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Moment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Forces"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ConceptDesignEvaluation">
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Layouting"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="SimplificationModelRole">
+    <rdfs:subClassOf rdf:resource="#ShapeRole"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SimplificationModel">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#Mesh"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasShapeRepresentation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PDModel"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#SimplificationModelRole"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasShapeRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BezierSurface">
+    <rdfs:subClassOf rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ParametricSurface"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PointCloudWithLocalDisc">
+    <rdfs:subClassOf rdf:resource="#PointCloud"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PointCloudWithOrientedNormals"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PointCloudWithNormalDirections"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PointCloudWithLocalEllipses"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PointCloudWithHigherOrderLocalModels"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Layouting">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="MeshConditionType">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GeometricConditionType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ShapeStyling">
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConceptDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SimulationModel">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasShapeRepresentation"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#Mesh"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#FiniteElementMesh"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasShapeRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PDModel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SimplificationGroup">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasElement"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#SimplificationModel"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PointCloudWithOrientedNormals">
+    <owl:disjointWith rdf:resource="#PointCloudWithLocalDisc"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PointCloudWithLocalEllipses"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PointCloudWithHigherOrderLocalModels"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PointCloudWithNormalDirections"/>
+    <rdfs:subClassOf rdf:resource="#PointCloud"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FeatureType"/>
+  <owl:Class rdf:ID="CFD">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BoundaryConditionType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ContactInfo"/>
+  <owl:Class rdf:about="#ConceptDevelopment">
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meshing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FeatureInfo">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Here the info related to a specific type of feature present in a model is collected</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Meshing">
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ElectromagneticResult">
+    <rdfs:subClassOf rdf:resource="#SimulationResultType"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PreSimulationMesh">
+    <rdfs:subClassOf rdf:resource="#FiniteElementMesh"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ShapeAcquisitionAndReconstruction">
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SimulationPostProcessing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PDModel">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasShapeRepresentation"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >THis concept models  the shape role of a specific shape (that is an instance of ShapeRepresentationAndDescription). In this way, we can capture for example that a shape is a simplification of a given CAD model according to certain conditions (associated to the corresponding ShapeRole). There's also the possibility to store the info related to the features of the model, if any.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#GeometricConditionType">
+    <rdfs:subClassOf rdf:resource="#ConditionType"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VariantGroup">
+    <rdfs:subClassOf rdf:resource="#Group"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AnalysisGroup">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasElement"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#SimulationModel"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Group"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SimulationPostProcessing">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductStyling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ExternalForce">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Forces"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RationalParameterization">
+    <rdfs:subClassOf rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ParametricSurface"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProductStyling">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Solving"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith rdf:resource="#SimulationPostProcessing"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StressResult">
+    <rdfs:subClassOf rdf:resource="#StaticResult"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Solving">
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDesign"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ProductStyling"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#SimulationPostProcessing"/>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Temperature">
+    <rdfs:subClassOf rdf:resource="#Thermic"/>
+    <owl:disjointWith rdf:resource="#Conduction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ThermicResult">
+    <rdfs:subClassOf rdf:resource="#SimulationResultType"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NURB">
+    <rdfs:subClassOf rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ParametricSurface"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PointCloudWithLocalEllipses">
+    <owl:disjointWith rdf:resource="#PointCloudWithLocalDisc"/>
+    <owl:disjointWith rdf:resource="#PointCloudWithNormalDirections"/>
+    <owl:disjointWith rdf:resource="#PointCloudWithOrientedNormals"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PointCloudWithHigherOrderLocalModels"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#PointCloud"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Dynamic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StructuralMechanics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BoundaryConditionType">
+    <rdfs:subClassOf rdf:resource="#ConditionType"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SimplificationModelForAnalysis">
+    <rdfs:subClassOf rdf:resource="#SimplificationModelRole"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Static">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StructuralMechanics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ProductCategory"/>
+  <owl:Class rdf:about="#PointCloudWithHigherOrderLocalModels">
+    <owl:disjointWith rdf:resource="#PointCloudWithOrientedNormals"/>
+    <owl:disjointWith rdf:resource="#PointCloudWithLocalDisc"/>
+    <owl:disjointWith rdf:resource="#PointCloudWithNormalDirections"/>
+    <owl:disjointWith rdf:resource="#PointCloudWithLocalEllipses"/>
+    <rdfs:subClassOf rdf:resource="#PointCloud"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Contact">
+    <rdfs:subClassOf rdf:resource="#Static"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PostSimulationMesh">
+    <rdfs:subClassOf rdf:resource="#FiniteElementMesh"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProductDesign">
+    <owl:disjointWith rdf:resource="#ProductStyling"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith rdf:resource="#Solving"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CalculationAndAnalaysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#SimulationPostProcessing"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="AssemblyGroup">
+    <rdfs:subClassOf rdf:resource="#Group"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#AssemblyGroup"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="containsGroup"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#StructuralMechanics">
+    <rdfs:subClassOf rdf:resource="#BoundaryConditionType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CalculationAndAnalaysis">
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#Solving"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith rdf:resource="#SimulationPostProcessing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#ProductDesign"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ProductDefinition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ProductStyling"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProductDefinition">
+    <owl:disjointWith rdf:resource="#Solving"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith rdf:resource="#SimulationPostProcessing"/>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PhysicalPrototyping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#ProductStyling"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#ProductDesign"/>
+    <owl:disjointWith rdf:resource="#CalculationAndAnalaysis"/>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Symmetry">
+    <rdfs:subClassOf rdf:resource="#BoundaryConditionType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PhysicalPrototyping">
+    <owl:disjointWith rdf:resource="#PartDesign"/>
+    <owl:disjointWith rdf:resource="#ProductDefinition"/>
+    <owl:disjointWith rdf:resource="#ConceptDevelopment"/>
+    <owl:disjointWith rdf:resource="#SimulationPostProcessing"/>
+    <owl:disjointWith rdf:resource="#Layouting"/>
+    <owl:disjointWith rdf:resource="#ProductEvaluation"/>
+    <owl:disjointWith rdf:resource="#Meshing"/>
+    <owl:disjointWith rdf:resource="#ConceptDesignEvaluation"/>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#ProductStyling"/>
+    <owl:disjointWith rdf:resource="#ProductDesign"/>
+    <owl:disjointWith rdf:resource="#Solving"/>
+    <owl:disjointWith rdf:resource="#ShapeStyling"/>
+    <owl:disjointWith rdf:resource="#ShapeSimplification"/>
+    <owl:disjointWith rdf:resource="#ShapeAcquisitionAndReconstruction"/>
+    <owl:disjointWith rdf:resource="#CalculationAndAnalaysis"/>
+    <owl:disjointWith rdf:resource="#DefinitionOfBoundaryConditions"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Forces">
+    <rdfs:subClassOf rdf:resource="#Static"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasContactInfo">
+    <rdfs:range rdf:resource="#ContactInfo"/>
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="IsConditionOf">
+    <rdfs:domain rdf:resource="#ConditionType"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasCondition"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#ShapeRole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPreferableShapeCondition">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="IsPreferableShapeConditionOf"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasShapeCondition"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSuperTask">
+    <rdfs:range rdf:resource="#Task"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasSubtask"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Task"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPreferableTaskCondition">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasTaskCondition"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="IsPreferableTaskConditionOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAlgorithm">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isImplementedBy"/>
+    </owl:inverseOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >list of algorithms from the common tool ontology</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+          <owl:Class rdf:about="#Task"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Algorithm"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#IsPreferableTaskConditionOf">
+    <owl:inverseOf rdf:resource="#hasPreferableTaskCondition"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="IsTaskConditionOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#ConditionType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasSubtask">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="#Task"/>
+    <owl:inverseOf rdf:resource="#hasSuperTask"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasCondition">
+    <rdfs:range rdf:resource="#ConditionType"/>
+    <owl:inverseOf rdf:resource="#IsConditionOf"/>
+    <rdfs:domain rdf:resource="#ShapeRole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInputShapeRole">
+    <rdfs:range rdf:resource="#ShapeRole"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Task"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="belongsToAssemblyGroup">
+    <rdfs:range rdf:resource="#AssemblyGroup"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="belongsToGroup"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutputShapeRole">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Task"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#ShapeRole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTaskCondition">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#IsTaskConditionOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#ShapeRole"/>
+    <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasShapeCondition">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="IsShapeConditionOf"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+    <rdfs:domain rdf:resource="#ShapeRole"/>
+    <rdfs:range rdf:resource="#GeometricConditionType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInputPDModel">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="#PDModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="belongsToAnalysisGroup">
+    <rdfs:range rdf:resource="#AnalysisGroup"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#belongsToGroup"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPredecessor">
+    <rdfs:range rdf:resource="#Task"/>
+    <rdfs:domain rdf:resource="#Task"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasSuccessor"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutputPDModel">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="#PDModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasShapeRole">
+    <rdfs:range rdf:resource="#ShapeRole"/>
+    <rdfs:domain rdf:resource="#PDModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAlgoCategory">
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Functionality"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Task"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Algorithm"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment xml:lang="en">List of algorithm categories from the common tool ontology.
+
+(Some comments from IGD, 26.02.2006):
+
+(1)
+the common tool ontolgy already has a "hasAlgorithmCategory" property, but we cannot reuse it since the common tool ontology has been imported and therefore it is not editable.   
+
+(2)
+As a way out we could create a sub-property of "hasAlgorithmCategory", but in this case the sub-property can only narrow the domain of its super-property. That means, we cannot add a class to the domain of the sub-property that is not a sub-class of the domain of its super-property. So, this alternative drops out.
+
+(3)
+The only  way out here is to define a new property, e.g. "hasAlgoCategory" which is actually an extension of the common property "hasAlgorithCategory" but becomes cluster-specific by extending the domain by the class "Task" (see below).</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRepresentativeElement">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isRepresentativeElementOfAssembly"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#AssemblyGroup"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasElement"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="IsNecessaryTaskConditionOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasNecessaryTaskCondition"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#IsTaskConditionOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#ConditionType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasFeatureInfo">
+    <rdfs:range rdf:resource="#FeatureInfo"/>
+    <rdfs:domain rdf:resource="#PDModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasSuccessor">
+    <rdfs:domain rdf:resource="#Task"/>
+    <owl:inverseOf rdf:resource="#hasPredecessor"/>
+    <rdfs:range rdf:resource="#Task"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasElement">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#belongsToGroup"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Group"/>
+    <rdfs:range rdf:resource="#PDModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isSupportedBy">
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+    <rdfs:domain rdf:resource="#Task"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#IsTaskConditionOf">
+    <rdfs:subPropertyOf rdf:resource="#IsConditionOf"/>
+    <owl:inverseOf rdf:resource="#hasTaskCondition"/>
+    <rdfs:domain rdf:resource="#ConditionType"/>
+    <rdfs:range rdf:resource="#ShapeRole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasProductCategory">
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ShapeRepresentationAndDescription"/>
+    <rdfs:range rdf:resource="#ProductCategory"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="supports">
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+    <rdfs:range rdf:resource="#Task"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasNecessaryShapeCondition">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="IsNecessaryShapeConditionOf"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf rdf:resource="#hasShapeCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#IsPreferableShapeConditionOf">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#IsShapeConditionOf"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#hasPreferableShapeCondition"/>
+    <rdfs:domain rdf:resource="#GeometricConditionType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#IsNecessaryShapeConditionOf">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#IsShapeConditionOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#GeometricConditionType"/>
+    <owl:inverseOf rdf:resource="#hasNecessaryShapeCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="belongsToSimplificationGroup">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#belongsToGroup"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#SimplificationGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#IsShapeConditionOf">
+    <rdfs:range rdf:resource="#ShapeRole"/>
+    <rdfs:domain rdf:resource="#GeometricConditionType"/>
+    <owl:inverseOf rdf:resource="#hasShapeCondition"/>
+    <rdfs:subPropertyOf rdf:resource="#IsConditionOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#belongsToGroup">
+    <owl:inverseOf rdf:resource="#hasElement"/>
+    <rdfs:domain rdf:resource="#PDModel"/>
+    <rdfs:range rdf:resource="#Group"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isRepresentativeElementOfAssembly">
+    <rdfs:range rdf:resource="#AssemblyGroup"/>
+    <rdfs:domain rdf:resource="#PDModel"/>
+    <owl:inverseOf rdf:resource="#hasRepresentativeElement"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="belongsToVariantGroup">
+    <rdfs:range rdf:resource="#VariantGroup"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containsSimplificationGroup">
+    <rdfs:range rdf:resource="#SimplificationGroup"/>
+    <rdfs:domain rdf:resource="#AnalysisGroup"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#containsGroup"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isAssociatedTo">
+    <rdfs:domain rdf:resource="#Group"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ShapeGroup"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#SubGroup"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="supportsTaskInInput">
+    <rdfs:range rdf:resource="#Task"/>
+    <rdfs:domain rdf:resource="#ShapeRole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSimulationResultType">
+    <rdfs:domain rdf:resource="#PostSimulationMesh"/>
+    <rdfs:range rdf:resource="#SimulationResultType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasNecessaryTaskCondition">
+    <owl:inverseOf rdf:resource="#IsNecessaryTaskConditionOf"/>
+    <rdfs:subPropertyOf rdf:resource="#hasTaskCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isImplementedBy">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+          <owl:Class rdf:about="#Task"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Algorithm"/>
+    <owl:inverseOf rdf:resource="#hasAlgorithm"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="handlesShapeType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >List of Shape data structures handled by the tool. Should be linked to the ShapeRepresentationAndDescription sub-classes...</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasGroupDescription">
+    <rdfs:domain rdf:resource="#Group"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="closed">
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#BRep"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >closed = yes | no | undetermined</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="numberOfDisconnectedComponents">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >numberOfDisconnectedComponents = &lt;positiv integer> [optional]</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#NonManifoldBRep"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="numberOfPatches">
+    <rdfs:domain rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#BRep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="numberOfSurfaceFeatures">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >numberOfSurfaceFeatures (blending, fillets) = &lt;positive integer> [optional]</rdfs:comment>
+    <rdfs:domain rdf:resource="#FeatureInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="numberOfThroughHoleFeatures">
+    <rdfs:domain rdf:resource="#FeatureInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasReference">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a URL to a document related to the algorithm. The document may exist in the  Digital Library.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#SoftwareTool"/>
+          <rdf:Description rdf:about="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#Algorithm"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#containsGroup">
+    <rdfs:domain rdf:resource="#Group"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Group"/>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:about="#hasShapeType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ShapeRole"/>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/toolCommonOntology.owl#ShapeType"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isFormatVariant">
+    <rdfs:domain rdf:resource="#VariantGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="taskDescription">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasNumberOfFeature">
+    <rdfs:domain rdf:resource="#FeatureInfo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasShapeRepresentation">
+    <rdfs:domain rdf:resource="#PDModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#ShapeRepresentationAndDescription"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFeatureType">
+    <rdfs:domain rdf:resource="#FeatureInfo"/>
+    <rdfs:range rdf:resource="#FeatureType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStructuralGraph">
+    <rdfs:range rdf:resource="http://www.aimatshape.net/ontologies/shapeCommonOntology.owl#CentreLineGraph"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AssemblyGroup"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasResultType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >scalar|vector|tensor</rdfs:comment>
+    <rdfs:domain rdf:resource="#SimulationResultType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isConceptDesignVariant">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#VariantGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="hasPostSimulationModel">
+    <rdfs:domain rdf:resource="#AnalysisGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#SimulationModel"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="isPostSimulationModel"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf rdf:resource="#hasElement"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="isSimplifiedModel">
+    <rdfs:domain rdf:resource="#SimplificationModel"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasSimplifiedModel"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#AnalysisGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToAnalysisGroup"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="isTesselletedModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToAnalysisGroup"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasTessellatedModel"/>
+    </owl:inverseOf>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#isPostSimulationModel">
+    <rdfs:range rdf:resource="#AnalysisGroup"/>
+    <rdfs:domain rdf:resource="#SimulationModel"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToAnalysisGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasPostSimulationModel"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="isPreSimulationModel">
+    <rdfs:range rdf:resource="#AnalysisGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasPreSimulationModel"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#SimulationModel"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToAnalysisGroup"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="hasDesignModel">
+    <rdfs:domain rdf:resource="#AnalysisGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#hasElement"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasTessellatedModel">
+    <rdfs:subPropertyOf rdf:resource="#hasElement"/>
+    <rdfs:domain rdf:resource="#AnalysisGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isTesselletedModel"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasPreSimulationModel">
+    <rdfs:subPropertyOf rdf:resource="#hasElement"/>
+    <rdfs:domain rdf:resource="#AnalysisGroup"/>
+    <owl:inverseOf rdf:resource="#isPreSimulationModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#SimulationModel"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasSimplifiedModel">
+    <owl:inverseOf rdf:resource="#isSimplifiedModel"/>
+    <rdfs:subPropertyOf rdf:resource="#hasElement"/>
+    <rdfs:domain rdf:resource="#AnalysisGroup"/>
+    <rdfs:range rdf:resource="#SimplificationModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="isDesignModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#belongsToAnalysisGroup"/>
+  </owl:InverseFunctionalProperty>
+  <GeometricDesignEvaluation rdf:ID="CheckForKnifeEdges">
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(9) Knife Edges. Models with sharp edges can not be physically produced and such models be avoided.</taskDescription>
+  </GeometricDesignEvaluation>
+  <GeometricConditionType rdf:ID="MaxAreaVariation"/>
+  <ExternalForce rdf:ID="lineicForce"/>
+  <PDModel rdf:ID="MetalStamping_Assembly">
+    <isRepresentativeElementOfAssembly>
+      <AssemblyGroup rdf:ID="MetalStamping_AssemblyGroup">
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component4">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component12">
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component7">
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component13">
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component5">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component6">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component1">
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component8">
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component2">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component9">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component10">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasRepresentativeElement rdf:resource="#MetalStamping_Assembly"/>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component11">
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="MetalStamping_Component3">
+            <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+            <belongsToGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+          </PDModel>
+        </hasElement>
+      </AssemblyGroup>
+    </isRepresentativeElementOfAssembly>
+    <hasShapeRole rdf:resource="#CADMockUp"/>
+    <belongsToAssemblyGroup rdf:resource="#MetalStamping_AssemblyGroup"/>
+  </PDModel>
+  <SimulationModel rdf:ID="PumpCarter_FEMesh">
+    <isPreSimulationModel>
+      <AnalysisGroup rdf:ID="PumpCarter_AnalysisGroup">
+        <hasPreSimulationModel rdf:resource="#PumpCarter_FEMesh"/>
+        <hasTessellatedModel>
+          <PDModel rdf:ID="PumpCarter_STL">
+            <belongsToGroup>
+              <SimplificationGroup rdf:ID="PumpCarter_SimplificationGroup">
+                <hasGroupDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >simplification of the pump carter in a non-manifold way</hasGroupDescription>
+                <hasElement>
+                  <SimplificationModel rdf:ID="PumpCarter_Simplified_STL">
+                    <isSimplifiedModel rdf:resource="#PumpCarter_AnalysisGroup"/>
+                    <belongsToGroup rdf:resource="#PumpCarter_SimplificationGroup"/>
+                    <hasShapeRole rdf:resource="#SimplificationMeshwithStaticBC"/>
+                    <belongsToSimplificationGroup rdf:resource="#PumpCarter_SimplificationGroup"/>
+                  </SimplificationModel>
+                </hasElement>
+                <hasElement rdf:resource="#PumpCarter_STL"/>
+              </SimplificationGroup>
+            </belongsToGroup>
+            <belongsToAnalysisGroup rdf:resource="#PumpCarter_AnalysisGroup"/>
+            <isTesselletedModel rdf:resource="#PumpCarter_AnalysisGroup"/>
+            <belongsToSimplificationGroup rdf:resource="#PumpCarter_SimplificationGroup"/>
+            <hasShapeRole rdf:resource="#TesselatedModelForSimplification"/>
+          </PDModel>
+        </hasTessellatedModel>
+        <hasSimplifiedModel rdf:resource="#PumpCarter_Simplified_STL"/>
+        <hasDesignModel>
+          <PDModel rdf:ID="PumpCarter_STEP">
+            <belongsToAnalysisGroup rdf:resource="#PumpCarter_AnalysisGroup"/>
+            <hasShapeRole rdf:resource="#CADModelforTesselation"/>
+            <isDesignModel rdf:resource="#PumpCarter_AnalysisGroup"/>
+          </PDModel>
+        </hasDesignModel>
+        <hasPostSimulationModel>
+          <SimulationModel rdf:ID="PumpCarter_FEResults">
+            <isPostSimulationModel rdf:resource="#PumpCarter_AnalysisGroup"/>
+            <hasShapeRole rdf:resource="#ResultFEMManifoldForCase1"/>
+          </SimulationModel>
+        </hasPostSimulationModel>
+      </AnalysisGroup>
+    </isPreSimulationModel>
+    <hasShapeRole rdf:resource="#FEMManifoldForCase1"/>
+  </SimulationModel>
+  <AnalysisGroup rdf:ID="StubAxle_AnalysisGroup">
+    <hasPreSimulationModel>
+      <SimulationModel rdf:ID="StubAxle_FEMesh">
+        <hasShapeRole rdf:resource="#FEMManifoldForCase1"/>
+        <isPreSimulationModel rdf:resource="#StubAxle_AnalysisGroup"/>
+      </SimulationModel>
+    </hasPreSimulationModel>
+    <containsSimplificationGroup>
+      <SimplificationGroup rdf:ID="StubAxle_SimplificationGroup">
+        <hasElement>
+          <SimplificationModel rdf:ID="StubAxle_Simplified_STL">
+            <hasShapeRole rdf:resource="#SimplificationMeshwithStaticBC"/>
+            <belongsToGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+            <belongsToSimplificationGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+          </SimplificationModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="StubAxle_STL">
+            <belongsToGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+            <hasShapeRole rdf:resource="#CADModelforTesselation"/>
+            <belongsToSimplificationGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+          </PDModel>
+        </hasElement>
+        <hasElement>
+          <SimplificationModel rdf:ID="StubAxle_Simplified_STEP">
+            <belongsToGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+            <hasShapeRole rdf:resource="#CADforVolumePreservingSimplification"/>
+            <belongsToSimplificationGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+          </SimplificationModel>
+        </hasElement>
+        <hasElement>
+          <PDModel rdf:ID="StubAxle_STEP">
+            <belongsToGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+            <belongsToSimplificationGroup rdf:resource="#StubAxle_SimplificationGroup"/>
+            <hasShapeRole rdf:resource="#CADModelforTesselation"/>
+            <isDesignModel rdf:resource="#StubAxle_AnalysisGroup"/>
+          </PDModel>
+        </hasElement>
+      </SimplificationGroup>
+    </containsSimplificationGroup>
+    <hasDesignModel rdf:resource="#StubAxle_STEP"/>
+    <hasPostSimulationModel>
+      <SimulationModel rdf:ID="StubAxle_FEResults">
+        <isPostSimulationModel rdf:resource="#StubAxle_AnalysisGroup"/>
+        <hasShapeRole rdf:resource="#ResultFEMManifoldForCase1"/>
+      </SimulationModel>
+    </hasPostSimulationModel>
+  </AnalysisGroup>
+  <FeatureType rdf:ID="FilletFeature"/>
+  <ConditionType rdf:ID="APosterioriDiscretisationErrorCriterion">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A posteriori mechanical criterion used to evaluate the effects of the problem discretisation</rdfs:comment>
+  </ConditionType>
+  <GeometricConditionType rdf:ID="MaxVariationOfCenterOfInertia"/>
+  <FeatureType rdf:ID="ThroughHole"/>
+  <ThermicResult rdf:ID="TemperatureResult"/>
+  <BRepConditionType rdf:ID="G1InternalContinuity"/>
+  <GeometricDesignEvaluation rdf:ID="CheckForCurvature">
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(8) Curvature. The radius of curvature should not be below a predefined length.</taskDescription>
+  </GeometricDesignEvaluation>
+  <Moment rdf:ID="ponctualMoment"/>
+  <GeometricConditionType rdf:ID="MaxVariationOfCenterOfGravity"/>
+  <SimulationModel rdf:ID="RearBumperSimulationModel"/>
+  <ContactInfo rdf:ID="contactWithoutFriction"/>
+  <Moment rdf:ID="volumicMoment">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >only if the problem is 3D</rdfs:comment>
+  </Moment>
+  <GeometricDesignEvaluation rdf:ID="CheckForAdditionalModelQuality">
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(13) Additional Model Quality. Test here can be related to the number of elements describing the model or the quality of surface e.g. if the surfaces are class A.</taskDescription>
+  </GeometricDesignEvaluation>
+  <ProductCategory rdf:ID="Aerospace"/>
+  <Displacement rdf:ID="Rotation"/>
+  <BRepConditionType rdf:ID="G2InternalContinuity"/>
+  <GeometricDesignEvaluation rdf:ID="CheckForContinuityInternalToObject">
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(4) Continuity Internal To Objects. Tests for C1, G1, C2 and G2 continuity within a NURBS curve or surface within defined tolerances.</taskDescription>
+  </GeometricDesignEvaluation>
+  <Moment rdf:ID="lineicMoment"/>
+  <ProductCategory rdf:ID="Automotive"/>
+  <cto:ShapeInfo rdf:ID="NURBSInfo"/>
+  <GeometricDesignEvaluation rdf:ID="CheckForPolynomialDegree">
+    <taskDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(5) Polynomial Degree. High polynomial degrees can be a problem for geometry processing.</taskDescription>
+  </GeometricDesignEvaluation>
+  <GeometricConditionType rdf:ID="Deflection"/>
+  <BRepConditionType rdf:ID="PolynomialDegree"/>
+  <SimulationModel rdf:ID="FrontBumperSimulationModel"/>
+  <SimulationModel rdf:ID="MechanicalPartSimulationModel"/>
+  <cto:ShapeInfo rdf:ID="MeshInfo"/>
+  <FeatureType rdf:ID="BlendingFeature"/>
+  <Moment rdf:ID="surfacicMoment">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >only if the problem is at least 2D</rdfs:comment>
+  </Moment>
+  <ContactInfo rdf:ID="contactWithFriction"/>
+  <BRepConditionType rdf:ID="C1InternalContinuity"/>
+  <MeshConditionType rdf:ID="MinElementAngle"/>
+  <ThermicResult rdf:ID="ConductionResult"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->
